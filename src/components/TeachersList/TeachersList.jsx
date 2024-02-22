@@ -1,13 +1,14 @@
-import { TeacherCard } from 'components/TeacherCard/TeacherCard';
+// import { TeacherCard } from 'components/TeacherCard/TeacherCard';
+// import items from '../../hooks/teachers.json';
 
-export const TeacherList = ({ items, onOpen }) => {
-  return (
-    <ul>
-      {items.map(item => (
-        <li key={item.id}>
-          <TeacherCard card={item} onOpen={onOpen} />
-        </li>
-      ))}
-    </ul>
-  );
-};
+// export const TeacherList = ({ onOpen }) => {
+//   return (
+//     <ul>
+//       {items.map(card => (
+//         <li key={card.id}>
+//           <TeacherCard card={card} onOpen={onOpen} />
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };

@@ -1,0 +1,32 @@
+import { theme } from "components/theme";
+import styled from "styled-components";
+
+export const ModalHeader = styled.div`
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  & svg {
+    stroke: ${theme.colors.main};
+    transition: stroke ${theme.transition}, scale ${theme.transition};
+    scale: 0.98;
+
+    &:hover,
+    &:focus {
+      scale: 1;
+      stroke: ${theme.colors.primary};
+    }
+  }
+`;
