@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
 import SpriteIcons from '../../images/sprite.svg';
 import { CloseBtn, ModalHeader } from './AuthModal.styled';
+import { createPortal } from 'react-dom';
 
 const customStyles = {
   content: {
@@ -15,10 +16,11 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
+Modal.setAppElement('#modal-root');
+const modalRoot = document.querySelector('#modal-root');
 
-export const AuthModal = ({ isOpen, onRequestClose }) => {
-  return (
+export const AuthModal = ({ isOpen, onRequestClose, children }) => {
+  return createPortal(
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
       <ModalHeader>
         <CloseBtn onClick={onRequestClose}>
@@ -27,6 +29,8 @@ export const AuthModal = ({ isOpen, onRequestClose }) => {
           </svg>
         </CloseBtn>
       </ModalHeader>
-    </Modal>
+      <div>{children}</div>
+    </Modal>,
+    modalRoot
   );
 };

@@ -1,24 +1,28 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthModal } from 'components/AuthModal/AuthModal';
-import SpriteIcons from '../../images/sprite.svg';
 import { Login } from 'components/Auth/Login';
 import { SignUp } from 'components/Auth/SignUp';
+import SpriteIcons from '../../images/sprite.svg';
 
 export const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isClick, setIsClick] = useState(null);
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsClick(true);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
+  const openLoginModal = () => {
+    setLoginModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsClick(null);
-    setIsModalOpen(false);
-    document.body.style.overflow = '';
+  const closeLoginModal = () => {
+    setLoginModalOpen(false);
+  };
+
+  const openRegisterModal = () => {
+    setRegisterModalOpen(true);
+  };
+
+  const closeRegisterModal = () => {
+    setRegisterModalOpen(false);
   };
 
   return (
@@ -39,31 +43,23 @@ export const Header = () => {
           </li>
         </ul>
         <>
-          <button onClick={() => openModal()}>
+          <button onClick={openLoginModal}>
             <svg width={20} height={20}>
               <use xlinkHref={`${SpriteIcons}#icon-log-in`} />
             </svg>
             Log in
           </button>
-          {isModalOpen && (
-            <AuthModal
-              isOpen={isModalOpen}
-              onRequestClose={closeModal}
-              card={isClick}
-            >
-              <Login/>
-            </AuthModal>
-          )}
-          <button onClick={() => openModal()}>Registration</button>
-          {isModalOpen && (
-            <AuthModal
-              isOpen={isModalOpen}
-              onRequestClose={closeModal}
-              card={isClick}
-            >
-              <SignUp/>
-            </AuthModal>
-          )}
+          <button onClick={openRegisterModal}>Registration</button>
+          <AuthModal isOpen={isLoginModalOpen} onRequestClose={closeLoginModal}>
+            <Login />
+          </AuthModal>
+
+          <AuthModal
+            isOpen={isRegisterModalOpen}
+            onRequestClose={closeRegisterModal}
+          >
+            <SignUp />
+          </AuthModal>
         </>
       </nav>
     </header>
