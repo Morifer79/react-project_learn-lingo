@@ -1,8 +1,8 @@
-import { Field, Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import SpriteIcons from '../../images/sprite.svg';
-import { ErrMsg, EyeBtn, PasswordLabel } from './Auth.styled';
+import { BtnSubmit, ErrMsg, EyeBtn, PasswordLabel, StyledForm, StyledInput, Title } from './Auth.styled';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'components/firebase';
@@ -43,21 +43,21 @@ export const Login = () => {
       validationSchema={loginSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <h2>Log In</h2>
+      <StyledForm>
+        <Title>Log In</Title>
         <p>
           Welcome back! Please enter your credentials to access your account and
           continue your search for an teacher.
         </p>
         <label aria-label="Email for login">
-          <Field type="email" name="email" placeholder="Email" />
+          <StyledInput type="email" name="email" placeholder="Email" />
           <ErrMsg name="email" component="div" />
         </label>
         <PasswordLabel aria-label="Password for login">
-          <Field
+          <StyledInput
             type={showPassword ? 'text' : 'password'}
             name="password"
-            placeholder="password"
+            placeholder="Password"
           />
           <ErrMsg name="password" component="div" />
           <EyeBtn onClick={() => handleTogglePassword()} type="button">
@@ -72,8 +72,8 @@ export const Login = () => {
             </svg>
           </EyeBtn>
         </PasswordLabel>
-        <button type="submit">Log In</button>
-      </Form>
+        <BtnSubmit type="submit">Log In</BtnSubmit>
+      </StyledForm>
     </Formik>
   );
 };

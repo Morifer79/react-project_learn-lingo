@@ -9,11 +9,9 @@ export const ModalHeader = styled.div`
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
   z-index: 10;
-  width: 24px;
-  height: 24px;
   padding: 0;
   border: none;
   background: transparent;

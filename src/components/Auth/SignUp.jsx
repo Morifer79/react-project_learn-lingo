@@ -1,7 +1,7 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { ErrMsg, EyeBtn, PasswordLabel } from 'components/Auth/Auth.styled';
+import { BtnSubmit, ErrMsg, EyeBtn, PasswordLabel, StyledForm, StyledInput, Title } from 'components/Auth/Auth.styled';
 import SpriteIcons from '../../images/sprite.svg';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'components/firebase';
@@ -39,26 +39,26 @@ export const SignUp = () => {
       validationSchema={registerSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <h2>Registration</h2>
+      <StyledForm>
+        <Title>Registration</Title>
         <p>
           Thank you for your interest in our platform! In order to register, we
           need some information. Please provide us with the following
           information
         </p>
         <label aria-label="Name for registration">
-          <Field type="text" name="userName" placeholder="Name" />
+          <StyledInput type="text" name="userName" placeholder="Name" />
           <ErrMsg name="userName" component="div" />
         </label>
         <label aria-label="Email for registration">
-          <Field type="email" name="email" placeholder="Email" />
+          <StyledInput type="email" name="email" placeholder="Email" />
           <ErrMsg name="email" component="div" />
         </label>
         <PasswordLabel aria-label="Password for registration">
-          <Field
+          <StyledInput
             type={showPassword ? 'text' : 'password'}
             name="password"
-            placeholder="password"
+            placeholder="Password"
           />
           <ErrMsg name="password" component="div" />
           <EyeBtn onClick={() => handleTogglePassword()} type="button">
@@ -73,8 +73,8 @@ export const SignUp = () => {
             </svg>
           </EyeBtn>
         </PasswordLabel>
-        <button type="submit">Sign Up</button>
-      </Form>
+        <BtnSubmit type="submit"><span>Sign Up</span></BtnSubmit>
+      </StyledForm>
     </Formik>
   );
 };
