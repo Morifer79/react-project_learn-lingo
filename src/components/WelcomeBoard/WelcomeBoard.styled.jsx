@@ -73,6 +73,7 @@ export const BoardList = styled.ul`
     max-inline-size: 96px;
     font-size: 14px;
     line-height: 1.285;
+    color: rgba(18, 20, 23, 0.7);
   }
 `;
 

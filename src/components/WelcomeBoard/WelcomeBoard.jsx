@@ -6,7 +6,7 @@ import {
   BtnTeachers,
   Hero,
   SideBoard,
-} from './WelcomBoard.styled';
+} from './WelcomeBoard.styled';
 
 export const WelcomeBoard = () => {
   return (
@@ -22,7 +22,7 @@ export const WelcomeBoard = () => {
             Elevate your language proficiency to new heights by connecting with
             highly qualified and experienced tutors.
           </p>
-          <BtnTeachers to="/teacher">Get started</BtnTeachers>
+          <BtnTeachers to="/teachers">Get started</BtnTeachers>
         </BoardContainer>
 
         <Hero src={mainImg} alt="home" />

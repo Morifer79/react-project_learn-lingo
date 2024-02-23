@@ -1,12 +1,16 @@
 import { FiltersBar } from 'components/FiltersBar/FiltersBar';
-// import { TeacherList } from 'components/TeachersList/TeachersList';
+import { theme } from 'components/theme';
+import styled from 'styled-components';
+
+const TeachersPageWrapper = styled.div`
+  background-color: ${theme.colors.back};
+`;
 
 export default function TeachersPage() {
   return (
-    <>
-      <div>Teachers Page</div>
+    <TeachersPageWrapper>
       <FiltersBar />
       {/* <TeacherList/> */}
-    </>
+    </TeachersPageWrapper>
   );
 }
