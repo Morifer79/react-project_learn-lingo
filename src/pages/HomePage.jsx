@@ -1,10 +1,10 @@
 import { WelcomeBoard } from "components/WelcomeBoard/WelcomBoard";
+import { HomeWrapper } from "components/WelcomeBoard/WelcomBoard.styled";
 
 export default function HomePage() {
   return (
-  <>
-    <div>Home Page</div>
+  <HomeWrapper>
     <WelcomeBoard/>
-  </>
+  </HomeWrapper>
   )
 }

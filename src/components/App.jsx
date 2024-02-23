@@ -17,7 +17,7 @@ export const App = () => {
           {/* <Route
             path="/favorites"
             element={
-              <PrivateRoute redirectTo="/login" component={<FavoritesPage />} />
+              <PrivateRoute redirectTo="/" component={<FavoritesPage />} />
             }
           /> */}
           <Route path="*" element={<NotFoundPage />} />

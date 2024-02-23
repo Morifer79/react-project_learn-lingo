@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   
   html {
 		box-sizing: border-box;
-		inline-size: 100vw;
+		inline-size: 100%;
 		overflow-x: hidden;
 	}
 

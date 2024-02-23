@@ -3,7 +3,7 @@ export const theme = {
     main: '#121417',
     back: '#F8F8F8',
     primary: '#F4C550',
-    secondary: '#FBE9BA',
+    secondary: '#FFDC86',
     light: '#fff',
     grass: '#38CD3E',
     error: '#F0AA8D',
@@ -16,5 +16,5 @@ export const theme = {
     xl: '35px',
   },
   spacing: value => `${value * 2}px`,
-  transition: '400ms linear',
+  transition: '350ms linear',
 };

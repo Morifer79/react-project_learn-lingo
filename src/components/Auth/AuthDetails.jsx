@@ -23,13 +23,11 @@ export const AuthDetails = () => {
 
   return (
     <>
-      {authUser ? (
+      {authUser && (
         <div>
           <p>{`Signed is as ${authUser.email}`}</p>
           <button onClick={userSignOut}>Sign Out</button>
         </div>
-      ) : (
-        <div>Signed Out</div>
       )}
     </>
   );

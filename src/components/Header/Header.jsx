@@ -1,8 +1,9 @@
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthModal } from 'components/AuthModal/AuthModal';
 import { Login } from 'components/Auth/Login';
 import { SignUp } from 'components/Auth/SignUp';
+import { AuthDetails } from 'components/Auth/AuthDetails';
+import { BtnLog, BtnReg, HeaderBox, LogoBox, NavList, Navigation, StyledLink } from './Header.styled';
 import SpriteIcons from '../../images/sprite.svg';
 
 export const Header = () => {
@@ -26,42 +27,46 @@ export const Header = () => {
   };
 
   return (
-    <header>
-      <nav>
-        <>
+    <HeaderBox>
+      <Navigation>
+        <LogoBox>
           <svg width={28} height={28}>
             <use xlinkHref={`${SpriteIcons}#icon-ukraine`} />
           </svg>
-          LearnLingo
-        </>
-        <ul>
+          <span>LearnLingo</span>
+        </LogoBox>
+        <NavList>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
-            <NavLink to="/teachers">Teachers</NavLink>
+            <StyledLink to="/teachers">Teachers</StyledLink>
           </li>
-        </ul>
-        <>
-          <button onClick={openLoginModal}>
+          {/* {authUser && (
+          <li>
+            <StyledLink to="/favorites">Favorites</StyledLink>
+          </li>
+          )} */}
+        </NavList>
+        <div>
+        <AuthDetails/>
+          <BtnLog onClick={openLoginModal}>
             <svg width={20} height={20}>
               <use xlinkHref={`${SpriteIcons}#icon-log-in`} />
             </svg>
-            Log in
-          </button>
-          <button onClick={openRegisterModal}>Registration</button>
+            <span>Log in</span>
+          </BtnLog>
+          <BtnReg onClick={openRegisterModal}>Registration</BtnReg>
+
           <AuthModal isOpen={isLoginModalOpen} onRequestClose={closeLoginModal}>
             <Login />
           </AuthModal>
 
-          <AuthModal
-            isOpen={isRegisterModalOpen}
-            onRequestClose={closeRegisterModal}
-          >
+          <AuthModal isOpen={isRegisterModalOpen} onRequestClose={closeRegisterModal}>
             <SignUp />
           </AuthModal>
-        </>
-      </nav>
-    </header>
+        </div>
+      </Navigation>
+    </HeaderBox>
   );
 };
