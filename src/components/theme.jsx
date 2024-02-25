@@ -7,6 +7,8 @@ export const theme = {
     light: '#fff',
     grass: '#38CD3E',
     error: '#F0AA8D',
+    cherry: '#800014',
+    accent: '#8a8a89',
   },
   radii: {
     xs: '12px',

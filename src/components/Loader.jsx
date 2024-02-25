@@ -2,6 +2,6 @@ import { PuffLoader } from 'react-spinners';
 
 export const Loader = () => {
   return (
-    <PuffLoader color="#36d7b7" />
+    <PuffLoader color="#38CD3E" />
   );
 };

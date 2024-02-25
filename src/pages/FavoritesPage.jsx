@@ -1,5 +1,7 @@
+import fav from 'images/favorite.png';
+
 export default function FavoritesPage() {
   return (
-    <div>Favorites Page</div>
+    <img src={fav} alt="no favorites" />
   );
 };

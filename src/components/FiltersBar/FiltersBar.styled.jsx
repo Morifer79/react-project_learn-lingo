@@ -30,13 +30,13 @@ export const StyledSelect = styled.select`
   overflow: hidden;
   background: right 14px center no-repeat url(${arrow}), ${theme.colors.light};
 
-  &#language{
+  &#language {
     inline-size: 220px;
   }
-  &#level{
+  &#level {
     inline-size: 198px;
   }
-  &#price{
+  &#price {
     inline-size: 124px;
   }
 

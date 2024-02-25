@@ -15,7 +15,7 @@ export const StyledForm = styled(Form)`
   max-inline-size: 440px;
 
   p {
-    margin-block-end: ${theme.spacing(20)};
+    margin-block-end: ${theme.spacing(10)};
 
     color: rgba(18, 20, 23, 0.8);
     font-weight: 400;

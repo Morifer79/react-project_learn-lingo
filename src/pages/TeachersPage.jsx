@@ -1,4 +1,6 @@
 import { FiltersBar } from 'components/FiltersBar/FiltersBar';
+import { TeacherCard } from 'components/TeacherCard/TeacherCard';
+// import { TeachersList } from 'components/TeachersList/TeachersList';
 import { theme } from 'components/theme';
 import styled from 'styled-components';
 
@@ -7,10 +9,13 @@ const TeachersPageWrapper = styled.div`
 `;
 
 export default function TeachersPage() {
+
   return (
     <TeachersPageWrapper>
       <FiltersBar />
-      {/* <TeacherList/> */}
+      {/* <TeachersList/> */}
+      {/* временно */}
+      <TeacherCard/>
     </TeachersPageWrapper>
   );
 }

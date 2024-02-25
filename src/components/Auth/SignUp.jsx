@@ -1,7 +1,15 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { BtnSubmit, ErrMsg, EyeBtn, PasswordLabel, StyledForm, StyledInput, Title } from 'components/Auth/Auth.styled';
+import {
+  BtnSubmit,
+  ErrMsg,
+  EyeBtn,
+  PasswordLabel,
+  StyledForm,
+  StyledInput,
+  Title,
+} from 'components/Auth/Auth.styled';
 import SpriteIcons from '../../images/sprite.svg';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'components/firebase';
@@ -46,14 +54,17 @@ export const SignUp = () => {
           need some information. Please provide us with the following
           information
         </p>
+
         <label aria-label="Name for registration">
           <StyledInput type="text" name="userName" placeholder="Name" />
           <ErrMsg name="userName" component="div" />
         </label>
+
         <label aria-label="Email for registration">
           <StyledInput type="email" name="email" placeholder="Email" />
           <ErrMsg name="email" component="div" />
         </label>
+
         <PasswordLabel aria-label="Password for registration">
           <StyledInput
             type={showPassword ? 'text' : 'password'}
@@ -73,7 +84,10 @@ export const SignUp = () => {
             </svg>
           </EyeBtn>
         </PasswordLabel>
-        <BtnSubmit type="submit"><span>Sign Up</span></BtnSubmit>
+
+        <BtnSubmit type="submit">
+          <span>Sign Up</span>
+        </BtnSubmit>
       </StyledForm>
     </Formik>
   );

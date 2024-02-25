@@ -24,7 +24,9 @@ export const LogoBox = styled.div`
     font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -2%;
+    background: linear-gradient(0deg, #f7ca17 50%, #055ac2 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 
@@ -33,10 +35,10 @@ export const StyledLink = styled(NavLink)`
   transition: color ${theme.transition};
 
   &:hover {
-    color: ${theme.colors.secondary};
+    color: ${theme.colors.primary};
   }
   &.active {
-    color: ${theme.colors.primary};
+    color: ${theme.colors.secondary};
   }
 `;
 
@@ -45,9 +47,10 @@ export const NavList = styled.ul`
   gap: ${theme.spacing(14)};
 `;
 
-export const BtnLog = styled.button`
+export const BtnAuth = styled.button`
   border: none;
   background-color: transparent;
+  transition: color ${theme.transition};
 
   &:hover svg {
     fill: ${theme.colors.secondary};
@@ -58,8 +61,13 @@ export const BtnLog = styled.button`
     transform: translateY(3px);
     fill: ${theme.colors.primary};
   }
+
+  &:hover {
+    color: ${theme.colors.secondary};
+  }
+
   span {
-    margin-inline-start: ${theme.spacing(4)};
+    margin-inline-start: ${theme.spacing(10)};
     font-weight: 700;
     line-height: 1.25;
   }
@@ -72,9 +80,20 @@ export const BtnReg = styled.button`
   border-radius: ${theme.radii.xs};
   color: ${theme.colors.light};
   background-color: ${theme.colors.main};
-  transition: opacity ${theme.transition};
+  transition: color ${theme.transition}, background-color ${theme.transition},
+    box-shadow ${theme.transition};
 
   &:hover {
-    opacity: 0.85;
+    color: ${theme.colors.main};
+    background-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 10px 0 ${theme.colors.main} inset,
+      0 0 10px 4px ${theme.colors.main};
   }
+`;
+
+export const UserSpan = styled.span`
+  background: linear-gradient(0deg, #f7ca17 30%, #055ac2 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;

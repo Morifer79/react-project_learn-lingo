@@ -1,5 +1,5 @@
-import { theme } from "components/theme";
-import styled from "styled-components";
+import { theme } from 'components/theme';
+import styled from 'styled-components';
 
 export const ModalHeader = styled.div`
   height: auto;

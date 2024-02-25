@@ -9,14 +9,11 @@ export const Hero = styled.img`
 export const SideBoard = styled.div`
   margin-block-end: ${theme.spacing(12)};
   display: inline-flex;
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
   gap: ${theme.spacing(12)};
 `;
 
 export const BoardContainer = styled.div`
   padding: ${theme.spacing(49)} ${theme.spacing(32)};
-  /* max-inline-size: 720px; */
   background-color: ${theme.colors.back};
   border-radius: ${theme.radii.l};
 
@@ -75,8 +72,4 @@ export const BoardList = styled.ul`
     line-height: 1.285;
     color: rgba(18, 20, 23, 0.7);
   }
-`;
-
-export const HomeWrapper = styled.div`
-  /* margin: 0 auto; */
 `;

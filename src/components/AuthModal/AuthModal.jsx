@@ -13,6 +13,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     borderRadius: '30px',
     padding: '64px',
+    zIndex: '1300',
+    overflowY: 'auto',
   },
 };
 

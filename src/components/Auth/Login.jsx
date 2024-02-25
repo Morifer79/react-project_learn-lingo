@@ -2,7 +2,15 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import SpriteIcons from '../../images/sprite.svg';
-import { BtnSubmit, ErrMsg, EyeBtn, PasswordLabel, StyledForm, StyledInput, Title } from './Auth.styled';
+import {
+  BtnSubmit,
+  ErrMsg,
+  EyeBtn,
+  PasswordLabel,
+  StyledForm,
+  StyledInput,
+  Title,
+} from './Auth.styled';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'components/firebase';
@@ -30,7 +38,7 @@ export const Login = () => {
         console.log(user);
         resetForm();
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
   };
 
   const handleTogglePassword = () => {
@@ -49,10 +57,12 @@ export const Login = () => {
           Welcome back! Please enter your credentials to access your account and
           continue your search for an teacher.
         </p>
+
         <label aria-label="Email for login">
           <StyledInput type="email" name="email" placeholder="Email" />
           <ErrMsg name="email" component="div" />
         </label>
+
         <PasswordLabel aria-label="Password for login">
           <StyledInput
             type={showPassword ? 'text' : 'password'}
@@ -72,7 +82,10 @@ export const Login = () => {
             </svg>
           </EyeBtn>
         </PasswordLabel>
-        <BtnSubmit type="submit">Log In</BtnSubmit>
+
+        <BtnSubmit type="submit">
+          <span>Log In</span>
+        </BtnSubmit>
       </StyledForm>
     </Formik>
   );

@@ -1,10 +1,5 @@
-import { WelcomeBoard } from "components/WelcomeBoard/WelcomeBoard";
-import { HomeWrapper } from "components/WelcomeBoard/WelcomeBoard.styled";
+import { WelcomeBoard } from 'components/WelcomeBoard/WelcomeBoard';
 
 export default function HomePage() {
-  return (
-  <HomeWrapper>
-    <WelcomeBoard/>
-  </HomeWrapper>
-  )
+  return <WelcomeBoard />
 }

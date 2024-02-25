@@ -10,9 +10,8 @@ export const FiltersBar = () => {
     <FiltersWrapper>
       <LanguagesFilter />
       <LevelFilter />
-      <PriceFilter/>
+      <PriceFilter />
       <BtnRst onClick={resetFilters}>Reset</BtnRst>
     </FiltersWrapper>
   );
 };
-
