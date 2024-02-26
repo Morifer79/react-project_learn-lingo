@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_project_learn_lingo=self.webpackChunkreact_project_learn_lingo||[]).push([[862],{240:function(e,t,n){n.r(t),n.d(t,{default:function(){return a}});var r=n.p+"static/media/favorite.0ac235254c79cfb1e022.png",c=n(184);function a(){return(0,c.jsx)("img",{src:r,alt:"no favorites"})}}}]);
+//# sourceMappingURL=862.8f1faf54.chunk.js.map
