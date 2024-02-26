@@ -27,9 +27,9 @@ export const TeachersList = () => {
     <>
       <div>Teachers List</div>
       <ul>
-        {data.map(item => (
-          <li key={item.id}>
-            <TeacherCard card={item} />
+        {data.map(card => (
+          <li key={card.id}>
+            <TeacherCard card={card} />
           </li>
         ))}
       </ul>

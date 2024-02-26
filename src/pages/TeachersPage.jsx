@@ -1,5 +1,4 @@
 import { FiltersBar } from 'components/FiltersBar/FiltersBar';
-// import { TeacherCard } from 'components/TeacherCard/TeacherCard';
 import { TeachersList } from 'components/TeachersList/TeachersList';
 import { theme } from 'components/theme';
 import styled from 'styled-components';
@@ -14,8 +13,6 @@ export default function TeachersPage() {
     <TeachersPageWrapper>
       <FiltersBar />
       <TeachersList/>
-      {/* временно */}
-      {/* <TeacherCard/> */}
     </TeachersPageWrapper>
   );
 }

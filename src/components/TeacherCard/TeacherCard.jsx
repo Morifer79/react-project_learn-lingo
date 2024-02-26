@@ -186,7 +186,7 @@ export const TeacherCard = ({card}) => {
                 isOpen={isTeacherModalOpen}
                 onRequestClose={closeTeacherModal}
               >
-                <TeacherModal onRequestClose={closeTeacherModal}/>
+                <TeacherModal card={card} onRequestClose={closeTeacherModal}/>
               </AuthModal>
             </HiddenData>
           )}
