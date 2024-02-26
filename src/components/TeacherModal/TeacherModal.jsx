@@ -7,7 +7,6 @@ import {
 } from 'components/Auth/Auth.styled';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import card from '../TeacherCard/teachers.json';
 import {
   Avatar,
   ModalName,
@@ -18,8 +17,10 @@ import {
   TeacherWrapper,
   TextWrapper,
 } from './TeacherModal.styled';
+import toast from 'react-hot-toast';
 
 const userSchema = Yup.object({
+  reason: Yup.string().required('Required'),
   fullName: Yup.string()
     .max(15, 'Must be 15 characters or less')
     .required('Required'),
@@ -34,14 +35,19 @@ const userSchema = Yup.object({
     ),
 });
 
-const handleSubmit = ({ fullName, email, password }, { resetForm }) => {
-  resetForm();
-};
+export const TeacherModal = ({ card, onRequestClose }) => {
+  const handleSubmit = ({ reason, fullName, email, number }, { resetForm }) => {
+    toast.success('The data was successfully sent.', {
+      duration: 5000,
+      position: 'top-right',
+    });
+    resetForm();
+    onRequestClose();
+  };
 
-export const TeacherModal = () => {
   return (
     <Formik
-      initialValues={{ fullName: '', email: '', number: '' }}
+      initialValues={{ reason: '', fullName: '', email: '', number: '' }}
       onSubmit={handleSubmit}
       validationSchema={userSchema}
     >

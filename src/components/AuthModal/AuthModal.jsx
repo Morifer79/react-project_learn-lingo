@@ -15,6 +15,9 @@ const customStyles = {
     padding: '64px',
     zIndex: '1300',
     overflowY: 'auto',
+    maxHeight: '90vh',
+    scrollbarColor: '#888 #e0e0e0',
+    scrollbarWidth: 'thin',
   },
 };
 

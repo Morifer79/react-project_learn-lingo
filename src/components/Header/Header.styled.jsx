@@ -48,6 +48,7 @@ export const NavList = styled.ul`
 `;
 
 export const BtnAuth = styled.button`
+  margin-inline-start: ${theme.spacing(5)};
   border: none;
   background-color: transparent;
   transition: color ${theme.transition};
@@ -67,7 +68,7 @@ export const BtnAuth = styled.button`
   }
 
   span {
-    margin-inline-start: ${theme.spacing(10)};
+    margin-inline-start: ${theme.spacing(4)};
     font-weight: 700;
     line-height: 1.25;
   }

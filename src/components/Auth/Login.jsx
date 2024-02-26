@@ -14,6 +14,7 @@ import {
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'components/firebase';
+import toast from 'react-hot-toast';
 
 const loginSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -23,22 +24,24 @@ const loginSchema = Yup.object({
     .required('Required'),
 });
 
-const initialValues = {
-  name: '',
-  email: '',
-  password: '',
-};
-
-export const Login = () => {
+export const Login = ({onRequestClose}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(user => {
-        console.log(user);
+        toast.success(`Welcome, ${user.user.email}`, {
+          duration: 5000,
+          position: 'top-right',
+          icon: '👋',
+        });
         resetForm();
+        onRequestClose();
       })
-      .catch(error => console.log(error));
+      .catch(error => toast.error(error, {
+        duration: 5000,
+        position: 'top-right',
+      }));
   };
 
   const handleTogglePassword = () => {
@@ -47,7 +50,10 @@ export const Login = () => {
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{
+        email: '',
+        password: '',
+      }}
       validationSchema={loginSchema}
       onSubmit={handleSubmit}
     >

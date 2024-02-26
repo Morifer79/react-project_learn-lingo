@@ -28,12 +28,11 @@ import {
   BtnLesson,
   AligneWrapper,
 } from './TeacherCard.styled';
-import card from './teachers.json';
 import dot from 'images/green-dot.png';
 import { AuthModal } from 'components/AuthModal/AuthModal';
 import { TeacherModal } from 'components/TeacherModal/TeacherModal';
 
-export const TeacherCard = () => {
+export const TeacherCard = ({card}) => {
   const [isTeacherModalOpen, setTeacherModalOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
@@ -82,7 +81,7 @@ export const TeacherCard = () => {
             <p>Rating: {card.rating} </p>
             <BorderLine>|</BorderLine>{' '}
             <p>
-              Price / 1 hour: <GreenMark> {card.price_per_hour}$</GreenMark>
+              Price / 1 hour: <GreenMark>{card.price_per_hour}$</GreenMark>
             </p>
             <BtnHeart onClick={toggleFavorite}>
               {isFavorite ? (
@@ -187,7 +186,7 @@ export const TeacherCard = () => {
                 isOpen={isTeacherModalOpen}
                 onRequestClose={closeTeacherModal}
               >
-                <TeacherModal />
+                <TeacherModal onRequestClose={closeTeacherModal}/>
               </AuthModal>
             </HiddenData>
           )}

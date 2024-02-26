@@ -13,6 +13,7 @@ import {
 import SpriteIcons from '../../images/sprite.svg';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'components/firebase';
+import toast from 'react-hot-toast';
 
 const registerSchema = Yup.object({
   userName: Yup.string()
@@ -25,16 +26,26 @@ const registerSchema = Yup.object({
     .required('Required'),
 });
 
-export const SignUp = () => {
+export const SignUp = ({onRequestClose}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = ({ userName, email, password }, { resetForm }) => {
+    console.log(userName);
+    
     createUserWithEmailAndPassword(auth, email, password)
-      .then(user => {
-        console.log(user);
-        resetForm();
-      })
-      .catch(error => console.log(error));
+      .then(
+        toast.success(`Welcome, ${userName}`, {
+          duration: 5000,
+          position: 'top-right',
+          icon: '👋',
+        }),
+        resetForm(),
+        onRequestClose(),
+      )
+      .catch(error => toast.error(error, {
+        duration: 5000,
+        position: 'top-right',
+      }));
   };
 
   const handleTogglePassword = () => {

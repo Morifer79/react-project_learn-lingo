@@ -73,6 +73,7 @@ export const IconStar = styled.svg`
 `;
 
 export const GreenMark = styled.span`
+  margin-inline-start: ${theme.spacing(2)};
   color: ${theme.colors.grass};
 `;
 

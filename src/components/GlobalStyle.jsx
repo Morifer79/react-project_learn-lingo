@@ -9,14 +9,17 @@ export const GlobalStyle = createGlobalStyle`
 		box-sizing: inherit;
 	}
   
-  html {
-		box-sizing: border-box;
-		inline-size: 100%;
-	}
-
+  html,
   body {
+    scrollbar-color: #888 #f1f1f1;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+
+    box-sizing: border-box;
     min-block-size: 100vh;
+		inline-size: 100%;
     margin: 0;
+
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 400;
