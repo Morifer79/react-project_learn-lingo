@@ -24,22 +24,18 @@ export const Header = () => {
 
   const openLoginModal = () => {
     setLoginModalOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeLoginModal = () => {
     setLoginModalOpen(false);
-    document.body.style.overflow = '';
   };
 
   const openRegisterModal = () => {
     setRegisterModalOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeRegisterModal = () => {
     setRegisterModalOpen(false);
-    document.body.style.overflow = '';
   };
 
   useEffect(() => {
@@ -109,11 +105,12 @@ export const Header = () => {
           )}
           <BtnReg onClick={openRegisterModal}>Registration</BtnReg>
 
-          <AuthModal isOpen={isLoginModalOpen} onRequestClose={closeLoginModal}>
+          <AuthModal id='log' isOpen={isLoginModalOpen} onRequestClose={closeLoginModal}>
             <Login onRequestClose={closeLoginModal} />
           </AuthModal>
 
           <AuthModal
+            id='reg'
             isOpen={isRegisterModalOpen}
             onRequestClose={closeRegisterModal}
           >

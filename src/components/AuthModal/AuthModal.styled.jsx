@@ -18,8 +18,8 @@ export const CloseBtn = styled.button`
 
   & svg {
     stroke: ${theme.colors.main};
-    transition: stroke ${theme.transition}, scale ${theme.transition};
-    scale: 0.98;
+    transition: stroke ${theme.transition};
+    transition: 1s;
 
     &:hover,
     &:focus {

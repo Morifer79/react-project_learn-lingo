@@ -1,4 +1,6 @@
-import { TeacherCard } from 'components/TeacherCard/TeacherCard';
+import { FiltersBar } from 'components/FiltersBar/FiltersBar';
+import { TeacherCard } from 'components/Teachers/TeacherCard/TeacherCard';
+import { Section } from 'components/WelcomeBoard/WelcomeBoard.styled';
 import { get, getDatabase, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
@@ -14,7 +16,7 @@ export const TeachersList = () => {
       if (fetchedData) {
         const dataArray = Object.keys(fetchedData).map(key => ({
           id: key,
-          ...fetchedData[key]
+          ...fetchedData[key],
         }));
         setData(dataArray);
       }
@@ -24,8 +26,8 @@ export const TeachersList = () => {
   }, []);
 
   return (
-    <>
-      <div>Teachers List</div>
+    <Section>
+      <FiltersBar />
       <ul>
         {data.map(card => (
           <li key={card.id}>
@@ -33,6 +35,6 @@ export const TeachersList = () => {
           </li>
         ))}
       </ul>
-    </>
+    </Section>
   );
 };

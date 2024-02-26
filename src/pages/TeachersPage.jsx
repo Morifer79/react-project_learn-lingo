@@ -1,5 +1,4 @@
-import { FiltersBar } from 'components/FiltersBar/FiltersBar';
-import { TeachersList } from 'components/TeachersList/TeachersList';
+import { TeachersList } from 'components/Teachers/TeachersList';
 import { theme } from 'components/theme';
 import styled from 'styled-components';
 
@@ -11,7 +10,6 @@ export default function TeachersPage() {
 
   return (
     <TeachersPageWrapper>
-      <FiltersBar />
       <TeachersList/>
     </TeachersPageWrapper>
   );

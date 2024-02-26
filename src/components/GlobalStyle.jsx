@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 
     box-sizing: border-box;
     min-block-size: 100vh;
-		inline-size: 100%;
+		inline-size: 100vw;
     margin: 0;
 
     font-family: "Roboto", sans-serif;

@@ -15,24 +15,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Toaster
         toastOptions={{
           success: {
-            iconTheme: {
-              primary: 'green',
-              secondary: 'white',
-            },
-            style: {
-              color: 'white',
-              background: '#38CD3E',
-            },
+            iconTheme: {primary: 'green', secondary: 'white'},
+            style: {color: 'white', background: '#38CD3E'},
           },
           error: {
-            iconTheme: {
-              primary: 'red',
-              secondary: 'white',
-            },
-            style: {
-              color: 'white',
-              background: 'red',
-            },
+            iconTheme: {primary: 'red', secondary: 'white'},
+            style: {color: 'white', background: 'red'},
           },
         }}
       />

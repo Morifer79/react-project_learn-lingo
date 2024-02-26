@@ -4,13 +4,14 @@ import {
   BoardList,
   BoardTitle,
   BtnTeachers,
-  Hero,
+  HeroImg,
+  Section,
   SideBoard,
 } from './WelcomeBoard.styled';
 
 export const WelcomeBoard = () => {
   return (
-    <section>
+    <Section>
       <SideBoard>
         <BoardContainer>
           <BoardTitle>
@@ -25,7 +26,7 @@ export const WelcomeBoard = () => {
           <BtnTeachers to="/teachers">Get started</BtnTeachers>
         </BoardContainer>
 
-        <Hero src={mainImg} alt="home" />
+        <HeroImg src={mainImg} alt="home" maxWidth="568px"/>
       </SideBoard>
       <BoardList>
         <li>
@@ -45,6 +46,6 @@ export const WelcomeBoard = () => {
           <p>Tutor nationalities</p>
         </li>
       </BoardList>
-    </section>
+    </Section>
   );
 };

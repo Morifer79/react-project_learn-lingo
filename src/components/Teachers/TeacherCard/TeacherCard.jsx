@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SpriteIcons from '../../images/sprite.svg';
+import SpriteIcons from 'images/sprite.svg';
 import {
   Avatar,
   CardSidebar,
@@ -30,7 +30,7 @@ import {
 } from './TeacherCard.styled';
 import dot from 'images/green-dot.png';
 import { AuthModal } from 'components/AuthModal/AuthModal';
-import { TeacherModal } from 'components/TeacherModal/TeacherModal';
+import { TeacherModal } from 'components/Teachers/TeacherModal/TeacherModal';
 
 export const TeacherCard = ({card}) => {
   const [isTeacherModalOpen, setTeacherModalOpen] = useState(false);

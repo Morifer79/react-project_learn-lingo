@@ -2,8 +2,6 @@ import { theme } from 'components/theme';
 import styled from 'styled-components';
 import arrow from 'images/chevron-down.svg';
 
-export const FiltersWrapper = styled.div``;
-
 export const StyledLabel = styled.label`
   color: rgb(138, 138, 137);
   font-size: 14px;

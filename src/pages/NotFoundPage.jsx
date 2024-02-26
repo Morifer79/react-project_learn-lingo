@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import nf from 'images/error1.png';
-import nf1 from 'images/four.png';
+import fourty from 'images/error1.png';
+import four from 'images/error2.png';
 import { NavLink } from 'react-router-dom';
 import { theme } from 'components/theme';
 
@@ -23,8 +23,8 @@ const Msg = styled.h1`
   font-size: 75px;
   position: absolute;
   top: 65%;
-  right: 24%;
-  transform: rotateY(30deg);
+  right: 30%;
+  transform: rotateY(37deg);
 `;
 
 const BtnBack = styled(NavLink)`
@@ -33,8 +33,8 @@ const BtnBack = styled(NavLink)`
   font-size: 65px;
   position: absolute;
   top: 65%;
-  right: 16%;
-  transform: rotateY(-80deg);
+  right: 26%;
+  transform: rotateY(-88deg);
   transition: color ${theme.transition} background-color ${theme.transition};
 
   &:hover {
@@ -46,8 +46,8 @@ const BtnBack = styled(NavLink)`
 export default function NotFoundPage() {
   return (
     <Thumb>
-      <img src={nf} alt="error" />
-      <Four src={nf1} alt="error" />
+      <img src={fourty} alt="error" />
+      <Four src={four} alt="error" />
       <Msg>PAGE NOT FOUND</Msg>
       <BtnBack to="/teachers">GO BACK</BtnBack>
     </Thumb>

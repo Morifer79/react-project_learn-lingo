@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderBox = styled.header`
-  padding: ${theme.spacing(10)} ${theme.spacing(32)};
+  margin: 0 auto;
+  padding-block: ${theme.spacing(10)};
   block-size: 88px;
-  inline-size: 100%;
+  max-inline-size: 1184px;
 `;
 
 export const Navigation = styled.nav`
@@ -16,9 +17,15 @@ export const Navigation = styled.nav`
 `;
 
 export const LogoBox = styled.div`
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: ${theme.spacing(4)};
+  gap: ${theme.spacing(6)};
+  transition: 1s;
+
+  &:hover{
+    transform: scale(1.2);
+  }
 
   span {
     font-size: 20px;
