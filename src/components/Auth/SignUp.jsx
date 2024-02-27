@@ -12,7 +12,7 @@ import {
 } from 'components/Auth/Auth.styled';
 import SpriteIcons from '../../images/sprite.svg';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from 'components/firebase';
+import { auth } from '../../firebase';
 import toast from 'react-hot-toast';
 
 const registerSchema = Yup.object({

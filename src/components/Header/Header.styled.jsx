@@ -3,10 +3,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderBox = styled.header`
-  margin: 0 auto;
-  padding-block: ${theme.spacing(10)};
-  block-size: 88px;
-  max-inline-size: 1184px;
+  padding: ${theme.spacing(10)} ${theme.spacing(32)};
+  max-inline-size: 1440px;
 `;
 
 export const Navigation = styled.nav`

@@ -32,13 +32,11 @@ import dot from 'images/green-dot.png';
 import { AuthModal } from 'components/AuthModal/AuthModal';
 import { TeacherModal } from 'components/Teachers/TeacherModal/TeacherModal';
 
-export const TeacherCard = ({card}) => {
+export const TeacherCard = ({ card }) => {
   const [isTeacherModalOpen, setTeacherModalOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-
-  const lang = card.languages.join(', ');
 
   const openTeacherModal = () => {
     setTeacherModalOpen(true);
@@ -59,11 +57,27 @@ export const TeacherCard = ({card}) => {
     isFavorite ? setIsFavorite(false) : setIsFavorite(true);
   };
 
+  const {
+    avatar_url,
+    lessons_done,
+    rating,
+    price_per_hour,
+    name,
+    surname,
+    lesson_info,
+    conditions,
+    languages,
+    levels,
+    experience,
+  } = card;
+
+  const lang = languages.join(', ');
+
   return (
     <CardContainer>
       <CardSidebar>
         <GreenDot src={dot} alt="dot" width={12} height={12} />
-        <Avatar src={card.avatar_url} alt="avatar" />
+        <Avatar src={avatar_url} alt="avatar" />
       </CardSidebar>
 
       <CardBody>
@@ -74,14 +88,14 @@ export const TeacherCard = ({card}) => {
               <use xlinkHref={`${SpriteIcons}#icon-book-open`} />
             </IconBook>
             <p>Lessons online</p> <BorderLine>|</BorderLine>{' '}
-            <p>Lessons done: {card.lessons_done}</p> <BorderLine>|</BorderLine>
+            <p>Lessons done: {lessons_done}</p> <BorderLine>|</BorderLine>
             <IconStar width={16} height={16} fill="#FFC531">
               <use xlinkHref={`${SpriteIcons}#icon-star-full`} />
             </IconStar>
-            <p>Rating: {card.rating} </p>
+            <p>Rating: {rating} </p>
             <BorderLine>|</BorderLine>{' '}
             <p>
-              Price / 1 hour: <GreenMark>{card.price_per_hour}$</GreenMark>
+              Price / 1 hour: <GreenMark>{price_per_hour}$</GreenMark>
             </p>
             <BtnHeart onClick={toggleFavorite}>
               {isFavorite ? (
@@ -99,7 +113,7 @@ export const TeacherCard = ({card}) => {
 
         <CardMain>
           <h2>
-            {card.name} {card.surname}
+            {name} {surname}
           </h2>
           <MainList>
             <li>
@@ -108,11 +122,11 @@ export const TeacherCard = ({card}) => {
             </li>
             <li>
               <TitleSpan>Lesson Info: </TitleSpan>
-              {card.lesson_info}
+              {lesson_info}
             </li>
             <li>
               <TitleSpan>Conditions: </TitleSpan>
-              {card.conditions}
+              {conditions}
             </li>
           </MainList>
 
@@ -120,19 +134,16 @@ export const TeacherCard = ({card}) => {
             <OpenData>
               <BtnMore onClick={handleClick}>Read more</BtnMore>
               <LevelList>
-                <li>{card.levels[0]}</li>
-                <li>{card.levels[1]}</li>
-                <li>{card.levels[2]}</li>
-                <li>{card.levels[3]}</li>
-                <li>{card.levels[4]}</li>
-                <li>{card.levels[5]}</li>
+                {levels.map(level => (
+                  <li>{level}</li>
+                ))}
               </LevelList>
             </OpenData>
           )}
 
           {isClicked && (
             <HiddenData>
-              <p>{card.experience}</p>
+              <p>{experience}</p>
               <FlexContainer>
                 <RevAvatar
                   src={card.reviews[0].reviewer_avatar}
@@ -172,12 +183,9 @@ export const TeacherCard = ({card}) => {
               <ReviewerComment>{card.reviews[1].comment}</ReviewerComment>
 
               <LevelList>
-                <li>{card.levels[0]}</li>
-                <li>{card.levels[1]}</li>
-                <li>{card.levels[2]}</li>
-                <li>{card.levels[3]}</li>
-                <li>{card.levels[4]}</li>
-                <li>{card.levels[5]}</li>
+              {levels.map(level => (
+                  <li>{level}</li>
+                ))}
               </LevelList>
               <BtnLesson onClick={openTeacherModal}>
                 Book trial lesson
@@ -186,7 +194,7 @@ export const TeacherCard = ({card}) => {
                 isOpen={isTeacherModalOpen}
                 onRequestClose={closeTeacherModal}
               >
-                <TeacherModal card={card} onRequestClose={closeTeacherModal}/>
+                <TeacherModal card={card} onRequestClose={closeTeacherModal} />
               </AuthModal>
             </HiddenData>
           )}

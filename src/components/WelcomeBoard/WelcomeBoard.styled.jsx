@@ -4,31 +4,29 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   padding: 0 ${theme.spacing(32)} ${theme.spacing(10)} ;
-  margin: 0 auto;
-  max-inline-size: 1440px;
-  inline-size: 100%;
 `;
 
-export const SideBoard = styled.div`
+export const BoardContainer = styled.div`
   margin-block-end: ${theme.spacing(12)};
   display: inline-flex;
   gap: ${theme.spacing(12)};
 `;
 
-export const BoardContainer = styled.div`
-  padding: 98px 108px 98px 64px;
+export const SideBoard = styled.div`
+  min-inline-size: 720px;
+  padding: 98px 64px;
   background-color: ${theme.colors.back};
   border-radius: ${theme.radii.l};
 
   p {
     margin-block-end: ${theme.spacing(32)};
-    max-inline-size: 470px;
+    max-inline-size: 471px;
     line-height: 1.375;
   }
 `;
 
 export const HeroImg = styled.img`
-  max-inline-size: 968px;
+  max-inline-size: 568px;
   border-radius: ${theme.radii.l};
 `;
 
@@ -37,6 +35,7 @@ export const BoardTitle = styled.h1`
   margin-block-end: ${theme.spacing(16)};
   font-size: 48px;
   font-weight: 500;
+  line-height: 1.166;
 
   i {
     font-weight: 400;
@@ -61,7 +60,6 @@ export const BtnTeachers = styled(NavLink)`
 `;
 
 export const BoardList = styled.ul`
-  max-inline-size: 1312px;
   padding: ${theme.spacing(20)};
   display: flex;
   justify-content: center;

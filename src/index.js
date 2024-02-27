@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'components/theme';
 import { GlobalStyle } from 'components/GlobalStyle';
-import 'components/firebase';
+import './firebase';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>

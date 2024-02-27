@@ -14,7 +14,7 @@ import {
 } from './Header.styled';
 import SpriteIcons from '../../images/sprite.svg';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from 'components/firebase';
+import { auth } from '../../firebase';
 import toast from 'react-hot-toast';
 
 export const Header = () => {

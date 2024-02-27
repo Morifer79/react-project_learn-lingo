@@ -13,7 +13,7 @@ import {
 } from './Auth.styled';
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from 'components/firebase';
+import { auth } from '../../firebase';
 import toast from 'react-hot-toast';
 
 const loginSchema = Yup.object({

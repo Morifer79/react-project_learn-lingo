@@ -12,8 +12,8 @@ import {
 export const WelcomeBoard = () => {
   return (
     <Section>
-      <SideBoard>
-        <BoardContainer>
+      <BoardContainer>
+        <SideBoard>
           <BoardTitle>
             Unlock your potential with <br />
             the best <i>language</i> tutors
@@ -24,10 +24,10 @@ export const WelcomeBoard = () => {
             highly qualified and experienced tutors.
           </p>
           <BtnTeachers to="/teachers">Get started</BtnTeachers>
-        </BoardContainer>
+        </SideBoard>
 
-        <HeroImg src={mainImg} alt="home" maxWidth="568px"/>
-      </SideBoard>
+        <HeroImg src={mainImg} alt="home"/>
+      </BoardContainer>
       <BoardList>
         <li>
           <h2>32,000 +</h2>

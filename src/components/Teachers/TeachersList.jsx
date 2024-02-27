@@ -1,6 +1,4 @@
-import { FiltersBar } from 'components/FiltersBar/FiltersBar';
 import { TeacherCard } from 'components/Teachers/TeacherCard/TeacherCard';
-import { Section } from 'components/WelcomeBoard/WelcomeBoard.styled';
 import { get, getDatabase, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
@@ -26,15 +24,12 @@ export const TeachersList = () => {
   }, []);
 
   return (
-    <Section>
-      <FiltersBar />
-      <ul>
-        {data.map(card => (
-          <li key={card.id}>
-            <TeacherCard card={card} />
-          </li>
-        ))}
-      </ul>
-    </Section>
+    <ul>
+      {data.map(card => (
+        <li key={card.id}>
+          <TeacherCard card={card} />
+        </li>
+      ))}
+    </ul>
   );
 };
