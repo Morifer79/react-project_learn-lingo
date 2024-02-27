@@ -21,16 +21,13 @@ import {
   BtnMore,
   LevelList,
   MainList,
-  RevAvatar,
-  FlexContainer,
-  FlexWrapper,
-  ReviewerComment,
   BtnLesson,
   AligneWrapper,
 } from './TeacherCard.styled';
 import dot from 'images/green-dot.png';
 import { AuthModal } from 'components/AuthModal/AuthModal';
 import { TeacherModal } from 'components/Teachers/TeacherModal/TeacherModal';
+import { TeacherReviewer } from './TeacherReviewer';
 
 export const TeacherCard = ({ card }) => {
   const [isTeacherModalOpen, setTeacherModalOpen] = useState(false);
@@ -69,6 +66,7 @@ export const TeacherCard = ({ card }) => {
     languages,
     levels,
     experience,
+    reviews,
   } = card;
 
   const lang = languages.join(', ');
@@ -134,8 +132,8 @@ export const TeacherCard = ({ card }) => {
             <OpenData>
               <BtnMore onClick={handleClick}>Read more</BtnMore>
               <LevelList>
-                {levels.map(level => (
-                  <li>{level}</li>
+                {levels.map((level, idx) => (
+                  <li key={idx}>{level}</li>
                 ))}
               </LevelList>
             </OpenData>
@@ -144,47 +142,12 @@ export const TeacherCard = ({ card }) => {
           {isClicked && (
             <HiddenData>
               <p>{experience}</p>
-              <FlexContainer>
-                <RevAvatar
-                  src={card.reviews[0].reviewer_avatar}
-                  alt="avatar"
-                  width={44}
-                  height={44}
-                />
-                <FlexWrapper>
-                  <h3>{card.reviews[0].reviewer_name}</h3>
-                  <p>
-                    <svg width={16} height={16} fill="#FFC531">
-                      <use xlinkHref={`${SpriteIcons}#icon-star-full`} />
-                    </svg>
-                    {card.reviews[0].reviewer_rating}.0
-                  </p>
-                </FlexWrapper>
-              </FlexContainer>
-              <ReviewerComment>{card.reviews[0].comment}</ReviewerComment>
-
-              <FlexContainer>
-                <RevAvatar
-                  src={card.reviews[1].reviewer_avatar}
-                  alt="avatar"
-                  width={44}
-                  height={44}
-                />
-                <FlexWrapper>
-                  <h3>{card.reviews[1].reviewer_name}</h3>
-                  <p>
-                    <svg width={16} height={16} fill="#FFC531">
-                      <use xlinkHref={`${SpriteIcons}#icon-star-full`} />
-                    </svg>
-                    {card.reviews[1].reviewer_rating}.0
-                  </p>
-                </FlexWrapper>
-              </FlexContainer>
-              <ReviewerComment>{card.reviews[1].comment}</ReviewerComment>
-
+              {reviews.map((item, idx) => (
+                <TeacherReviewer key={idx} item={item} />
+              ))}
               <LevelList>
-              {levels.map(level => (
-                  <li>{level}</li>
+                {levels.map((level, idx) => (
+                  <li key={idx}>{level}</li>
                 ))}
               </LevelList>
               <BtnLesson onClick={openTeacherModal}>
