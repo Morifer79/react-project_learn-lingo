@@ -16,6 +16,7 @@ export const theme = {
     m: '24px',
     l: '30px',
     xl: '35px',
+    xxl: '50%',
   },
   spacing: value => `${value * 2}px`,
   transition: '350ms linear',

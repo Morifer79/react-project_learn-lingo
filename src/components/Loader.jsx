@@ -1,7 +1,12 @@
-import { PuffLoader } from 'react-spinners';
+import { SpinnerRoundOutlined } from 'spinners-react';
 
 export const Loader = () => {
   return (
-    <PuffLoader color="#38CD3E" />
+    <SpinnerRoundOutlined
+      size={90}
+      thickness={180}
+      speed={100}
+      color="rgba(56, 205, 62, 1)"
+    />
   );
 };

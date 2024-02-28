@@ -19,21 +19,19 @@ export const CardSidebar = styled.div`
 
 export const AligneWrapper = styled.div`
   display: flex;
-  /* align-items: center; */
-  /* justify-content: flex-end; */
 `;
 
 export const Avatar = styled.img`
   padding: ${theme.spacing(6)};
   inline-size: 126px;
   block-size: 126px;
-  border-radius: 50%;
+  border-radius: ${theme.radii.xxl};
   border: 3px solid #fbe9ba;
 `;
 
 export const GreenDot = styled.img`
   transform: translate(88px, 34px);
-  border-radius: 50%;
+  border-radius: ${theme.radii.xxl};
 `;
 
 export const CardBody = styled.div`
@@ -171,7 +169,7 @@ export const FlexContainer = styled.div`
 `;
 
 export const RevAvatar = styled.img`
-  border-radius: 50%;
+  border-radius: ${theme.radii.xxl};
 `;
 
 export const FlexWrapper = styled.div`

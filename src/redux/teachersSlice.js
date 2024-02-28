@@ -7,8 +7,8 @@ const teachersSlice = createSlice({
     teachers: [],
     favorites: [],
     filter: {
-      languages: '',
-      levels: '',
+      language: '',
+      level: '',
       price: '',
     },
     loading: false,

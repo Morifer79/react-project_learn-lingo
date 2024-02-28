@@ -14,7 +14,7 @@ export const TextWrapper = styled.div`
 `;
 
 export const Avatar = styled.img`
-  border-radius: 50%;
+  border-radius: ${theme.radii.xxl};
 `;
 
 export const ModalSuperscript = styled.span`
@@ -66,7 +66,7 @@ export const StyledRadio = styled(Field)`
     left: 50%;
     inline-size: 24px;
     block-size: 24px;
-    border-radius: 50%;
+    border-radius: ${theme.radii.xxl};
     transform: translate(-50%, -50%);
     background-color: white;
     border: 2px solid rgba(18, 20, 23, 0.1);
@@ -79,7 +79,7 @@ export const StyledRadio = styled(Field)`
     left: 50%;
     inline-size: 24px;
     block-size: 24px;
-    border-radius: 50%;
+    border-radius: ${theme.radii.xxl};
     border: 2px solid ${theme.colors.primary};
     transform: translate(-50%, -50%);
   }
@@ -91,7 +91,7 @@ export const StyledRadio = styled(Field)`
     left: 50%;
     inline-size: 12px;
     block-size: 12px;
-    border-radius: 50%;
+    border-radius: ${theme.radii.xxl};
     background-color: ${theme.colors.primary};
     transform: translate(-50%, -50%);
     visibility: visible;
