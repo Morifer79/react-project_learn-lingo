@@ -20,15 +20,16 @@ import {
 import toast from 'react-hot-toast';
 
 const userSchema = Yup.object({
-  reason: Yup.string().required('Required'),
+  reason: Yup.string().required('Choose one of the answers'),
   fullName: Yup.string()
-    .max(15, 'Must be 15 characters or less')
+    .min(3, 'Minimum 3 characters')
+    .max(30, 'Maximum 30 characters')
     .required('Required'),
-  email: Yup.string().email('Invalid email address').required('Required'),
+  email: Yup.string().email('Invalid email address').required('This is a required field'),
   number: Yup.string()
-    .min(9, 'enter the number in the format XXX-XX-XX')
-    .max(9, 'enter the number in the format XXX-XX-XX')
-    .required('The field cannot be left empty!')
+    .min(9, 'Sample format: XXX-XX-XX')
+    .max(9, 'Sample format: XXX-XX-XX')
+    .required('This is a required field')
     .matches(
       /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
       'Phone number must be digits and dashes.'
@@ -68,29 +69,32 @@ export const TeacherModal = ({ card, onRequestClose }) => {
           </TextWrapper>
         </TeacherWrapper>
 
-        <RadioTitle>What is your main reason for learning English?</RadioTitle>
-        <RadioGroup>
-          <label>
-            <StyledRadio type="radio" name="reason" value="One" />
-            Career and business
-          </label>
-          <label>
-            <StyledRadio type="radio" name="reason" value="Two" />
-            Lesson for kids
-          </label>
-          <label>
-            <StyledRadio type="radio" name="reason" value="Three" />
-            Living abroad
-          </label>
-          <label>
-            <StyledRadio type="radio" name="reason" value="Four" />
-            Exams and coursework
-          </label>
-          <label>
-            <StyledRadio type="radio" name="reason" value="Five" />
-            Culture, travel or hobby
-          </label>
-        </RadioGroup>
+        <label aria-label="Field for reason" name="reason">
+          <RadioTitle>What is your main reason for learning English?</RadioTitle>
+          <RadioGroup>
+            <label>
+              <StyledRadio type="radio" name="reason" value="One" />
+              Career and business
+            </label>
+            <label>
+              <StyledRadio type="radio" name="reason" value="Two" />
+              Lesson for kids
+            </label>
+            <label>
+              <StyledRadio type="radio" name="reason" value="Three" />
+              Living abroad
+            </label>
+            <label>
+              <StyledRadio type="radio" name="reason" value="Four" />
+              Exams and coursework
+            </label>
+            <label>
+              <StyledRadio type="radio" name="reason" value="Five" />
+              Culture, travel or hobby
+            </label>
+          </RadioGroup>
+          <ErrMsg name="reason" component="div" />
+        </label>
 
         <label aria-label="Field for Full name">
           <StyledInput type="text" name="fullName" placeholder="Name" />

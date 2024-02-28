@@ -17,14 +17,16 @@ import { auth } from '../../firebase';
 import toast from 'react-hot-toast';
 
 const loginSchema = Yup.object({
-  email: Yup.string().email('Invalid email address').required('Required'),
+  email: Yup.string()
+    .email('Invalid email address')
+    .required('This is a required field'),
   password: Yup.string()
     .min(7, 'At least 7 simbols')
     .max(20, 'At most 20 simbols')
-    .required('Required'),
+    .required('This is a required field'),
 });
 
-export const Login = ({onRequestClose}) => {
+export const Login = ({ onRequestClose }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
@@ -38,10 +40,12 @@ export const Login = ({onRequestClose}) => {
         resetForm();
         onRequestClose();
       })
-      .catch(error => toast.error(error, {
-        duration: 5000,
-        position: 'top-right',
-      }));
+      .catch(error =>
+        toast.error(error, {
+          duration: 5000,
+          position: 'top-right',
+        })
+      );
   };
 
   const handleTogglePassword = () => {

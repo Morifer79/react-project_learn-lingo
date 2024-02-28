@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  ul {
+  ul, li {
     list-style: none;
     margin: 0;
     padding: 0;

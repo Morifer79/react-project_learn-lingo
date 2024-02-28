@@ -16,36 +16,39 @@ import { auth } from '../../firebase';
 import toast from 'react-hot-toast';
 
 const registerSchema = Yup.object({
-  userName: Yup.string()
-    .max(15, 'Must be 15 characters or less')
-    .required('Required'),
-  email: Yup.string().email('Invalid email address').required('Required'),
+  name: Yup.string()
+    .min(3, 'Minimum 3 characters')
+    .max(30, 'Maximum 30 characters')
+    .required('This is a required field'),
+  email: Yup.string()
+    .email('Invalid email address')
+    .required('This is a required field'),
   password: Yup.string()
     .min(7, 'At least 7 simbols')
     .max(20, 'At most 20 simbols')
-    .required('Required'),
+    .required('This is a required field'),
 });
 
-export const SignUp = ({onRequestClose}) => {
+export const SignUp = ({ onRequestClose }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = ({ userName, email, password }, { resetForm }) => {
-    console.log(userName);
-    
+  const handleSubmit = ({ name, email, password }, { resetForm }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(
-        toast.success(`Welcome, ${userName}`, {
+        toast.success(`Welcome, ${name}`, {
           duration: 5000,
           position: 'top-right',
           icon: '👋',
         }),
         resetForm(),
-        onRequestClose(),
+        onRequestClose()
       )
-      .catch(error => toast.error(error, {
-        duration: 5000,
-        position: 'top-right',
-      }));
+      .catch(error =>
+        toast.error(error, {
+          duration: 5000,
+          position: 'top-right',
+        })
+      );
   };
 
   const handleTogglePassword = () => {
@@ -54,7 +57,7 @@ export const SignUp = ({onRequestClose}) => {
 
   return (
     <Formik
-      initialValues={{ userName: '', email: '', password: '' }}
+      initialValues={{ name: '', email: '', password: '' }}
       validationSchema={registerSchema}
       onSubmit={handleSubmit}
     >
@@ -67,8 +70,8 @@ export const SignUp = ({onRequestClose}) => {
         </p>
 
         <label aria-label="Name for registration">
-          <StyledInput type="text" name="userName" placeholder="Name" />
-          <ErrMsg name="userName" component="div" />
+          <StyledInput type="text" name="name" placeholder="Name" />
+          <ErrMsg name="name" component="div" />
         </label>
 
         <label aria-label="Email for registration">

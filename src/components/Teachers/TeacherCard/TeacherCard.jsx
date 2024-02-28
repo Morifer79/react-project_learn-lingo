@@ -18,7 +18,7 @@ import {
   Superscript,
   TitleSpan,
   UnderlineSpan,
-  BtnMore,
+  BtnReadMore,
   LevelList,
   MainList,
   BtnLesson,
@@ -28,12 +28,26 @@ import dot from 'images/green-dot.png';
 import { AuthModal } from 'components/AuthModal/AuthModal';
 import { TeacherModal } from 'components/Teachers/TeacherModal/TeacherModal';
 import { TeacherReviewer } from './TeacherReviewer';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from '../../../redux/selectors';
+import { addFavorites, removeFavorites } from '../../../redux/teachersSlice';
+import { auth } from '../../../firebase';
 
 export const TeacherCard = ({ card }) => {
   const [isTeacherModalOpen, setTeacherModalOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites?.some(favorite => favorite.lessons_done === card.lessons_done);
+  
+  
+  const dispatch = useDispatch();
+
+  const toggleFavorite = () => {
+    isFavorite && auth
+      ? dispatch(removeFavorites(card))
+      : dispatch(addFavorites(card));
+  };
 
   const openTeacherModal = () => {
     setTeacherModalOpen(true);
@@ -48,10 +62,6 @@ export const TeacherCard = ({ card }) => {
   const handleClick = () => {
     setIsClicked(true);
     setIsHidden(true);
-  };
-
-  const toggleFavorite = () => {
-    isFavorite ? setIsFavorite(false) : setIsFavorite(true);
   };
 
   const {
@@ -130,7 +140,7 @@ export const TeacherCard = ({ card }) => {
 
           {!isHidden && (
             <OpenData>
-              <BtnMore onClick={handleClick}>Read more</BtnMore>
+              <BtnReadMore onClick={handleClick}>Read more</BtnReadMore>
               <LevelList>
                 {levels.map((level, idx) => (
                   <li key={idx}>{level}</li>

@@ -126,7 +126,7 @@ export const UnderlineSpan = styled.span`
   text-decoration: underline;
 `;
 
-export const BtnMore = styled.button`
+export const BtnReadMore = styled.button`
   margin-block-end: ${theme.spacing(16)};
   border: none;
   background-color: transparent;
@@ -216,4 +216,26 @@ export const BtnLesson = styled.button`
   &:hover {
     background-color: ${theme.colors.secondary};
   }
+`;
+
+export const BtnLoadMore = styled.button`
+  margin-block: ${theme.spacing(32)} ${theme.spacing(48)};
+  padding: ${theme.spacing(8)} ${theme.spacing(24)};
+
+  border-radius: ${theme.radii.xs};
+  border: none;
+  background: ${theme.colors.primary};
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.555;
+
+  transition: background-color ${theme.transition};
+
+  &:hover {
+    background-color: ${theme.colors.secondary};
+  }
+`;
+
+export const BtnWrapper = styled.div`
+  text-align: center;
 `;
