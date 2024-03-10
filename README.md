@@ -9,11 +9,11 @@ Authorization and Firebase database are provided.
 
 ## 𝔽𝕖𝕒𝕥𝕦𝕣𝕖𝕤 ᎓    
 
-※ Authorization Firebase  
+※ Firebase authorization by email or Google account  
 ※ View a list of available teachers  
 ※ Filter teachers based on various criteria (e.g., languages, level of knowledge, price)  
 ※ Mark teachers as favorites  
-※ Pagination for browsing through the teachers list  
+※ Pagination for browsing through the teacher list  
 
 ## 𝕋𝕖𝕔𝕙𝕟𝕠𝕝𝕠𝕘𝕚𝕖𝕤 ᎓  
 
@@ -25,7 +25,7 @@ Authorization and Firebase database are provided.
   <img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" title="npm" alt="npm" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-original.svg" title="firebase" alt="firebase" width="40" height="40"/>&nbsp;
   <img src="https://cms.pixso.net/images/home/format-pix.png" title="Pixso" alt="Pixso" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original-wordmark.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;  
+  <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>&nbsp;  
   
 ※ [React.js](https://react.dev): JavaScript library for building user interfaces.  
 ※ [React Router DOM](https://www.npmjs.com/package/react-router-dom): Declarative routing for React web applications.  
