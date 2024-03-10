@@ -17,7 +17,7 @@ export const CardSidebar = styled.div`
   flex-shrink: 0;
 `;
 
-export const AligneWrapper = styled.div`
+export const AlignWrapper = styled.div`
   display: flex;
 `;
 
@@ -139,22 +139,20 @@ export const BtnReadMore = styled.button`
 export const LevelList = styled.ul`
   display: flex;
   gap: ${theme.spacing(4)};
+`;
 
-  li {
-    padding: ${theme.spacing(4)} ${theme.spacing(6)};
-    border: 1px solid rgba(18, 20, 23, 0.2);
-    border-radius: ${theme.radii.xl};
+export const LevelItem = styled.li`
+  padding: ${theme.spacing(4)} ${theme.spacing(6)};
 
-    color: rgb(18, 20, 23);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.142;
-
-    &:first-child {
-      background-color: ${theme.colors.primary};
-      border: 1px solid transparent;
-    }
-  }
+  background-color: ${({ $active, theme }) =>
+    $active ? theme.colors.primary : theme.colors.light};
+  border: ${({ $active }) =>
+    $active ? 'none' : '1px solid rgba(18, 20, 23, 0.2)'};
+  border-radius: ${theme.radii.xl};
+  color: ${theme.colors.main};
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.142;
 `;
 
 export const OpenData = styled.div``;
@@ -236,4 +234,8 @@ export const BtnLoadMore = styled.button`
 
 export const BtnWrapper = styled.div`
   text-align: center;
+`;
+
+export const Wrapper = styled.div`
+  padding-inline-start: 122px;
 `;

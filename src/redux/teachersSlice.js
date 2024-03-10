@@ -5,29 +5,10 @@ const teachersSlice = createSlice({
   name: 'teachers',
   initialState: {
     teachers: [],
-    favorites: [],
-    filter: {
-      language: '',
-      level: '',
-      price: '',
-    },
     loading: false,
     error: null,
   },
-  reducers: {
-    addFavorites: (state, { payload }) => {
-      state.favorites.push(payload);
-      state.currentPage += 1;
-    },
-    removeFavorites: (state, { payload }) => {
-      state.favorites = state.favorites.filter(
-        item => item.lessons_done !== payload.lessons_done
-      );
-    },
-    setFilter: (state, { payload }) => {
-      state.filter = payload;
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(fetchData.fulfilled, (state, { payload }) => {
@@ -49,9 +30,6 @@ export const {
   setData,
   setLoading,
   setError,
-  addFavorites,
-  removeFavorites,
-  setFilter,
 } = teachersSlice.actions;
 
 export const teachersReducer = teachersSlice.reducer;

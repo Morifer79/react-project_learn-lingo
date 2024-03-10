@@ -76,3 +76,30 @@ export const BtnSubmit = styled.button`
     white-space: nowrap;
   }
 `;
+
+export const BtnSubmitGoogle = styled.button`
+  margin-block-start: ${theme.spacing(9)};
+  padding-block: ${theme.spacing(8)};
+  inline-size: 100%;
+  background-color: transparent;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: ${theme.radii.xs};
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.555;
+  transition: border-color ${theme.transition}, color ${theme.transition};
+
+  &:hover {
+    border-color: ${theme.colors.primary};
+    color: ${theme.colors.primary};
+  }
+`;
+
+export const GoogleIcon = styled.img`
+  margin-inline-start: ${theme.spacing(4)};
+  transform: translateY(3px);
+  display: inline-block;
+  inline-size: 20px;
+  block-size: 20px;
+`;

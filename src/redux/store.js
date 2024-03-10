@@ -1,6 +1,8 @@
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import { teachersReducer } from './teachersSlice';
+import { favoriteReducer } from './favoritesSlice';
+import { filtersReducer } from './filtersSlice';
 import {
   persistStore,
   persistReducer,
@@ -19,7 +21,9 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    teachers: persistReducer(persistConfig, teachersReducer),
+    teachers: teachersReducer,
+    filter: filtersReducer,
+    favorites: persistReducer(persistConfig, favoriteReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

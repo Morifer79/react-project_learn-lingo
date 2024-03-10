@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import SpriteIcons from 'images/sprite.svg';
+import dot from 'images/green-dot.png';
+import toast from 'react-hot-toast';
 import {
   Avatar,
   CardSidebar,
@@ -22,30 +23,43 @@ import {
   LevelList,
   MainList,
   BtnLesson,
-  AligneWrapper,
+  AlignWrapper,
+  LevelItem,
 } from './TeacherCard.styled';
-import dot from 'images/green-dot.png';
-import { AuthModal } from 'components/AuthModal/AuthModal';
 import { TeacherModal } from 'components/Teachers/TeacherModal/TeacherModal';
 import { TeacherReviewer } from './TeacherReviewer';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorites } from '../../../redux/selectors';
-import { addFavorites, removeFavorites } from '../../../redux/teachersSlice';
+import { selectFavorites, selectFilter } from '../../../redux/selectors';
+import { addFavorites, removeFavorites } from '../../../redux/favoritesSlice';
 import { auth } from '../../../firebase';
+import { AuthModal } from 'components/Auth/AuthModal/AuthModal';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export const TeacherCard = ({ card }) => {
   const [isTeacherModalOpen, setTeacherModalOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
   const favorites = useSelector(selectFavorites);
-  const isFavorite = favorites?.some(favorite => favorite.lessons_done === card.lessons_done);
-  
-  
+  const isFavorite = favorites?.some(
+    favorite => favorite.lessons_done === card.lessons_done
+  );
+  const filteredLevel = useSelector(selectFilter).level;
+
   const dispatch = useDispatch();
 
   const toggleFavorite = () => {
-    isFavorite && auth
-      ? dispatch(removeFavorites(card))
+    if (!authUser) {
+      toast.error('You don`t authorized!', {
+        duration: 5000,
+        position: 'top-right',
+      });
+      return;
+    }
+
+    isFavorite && authUser
+      ? dispatch(removeFavorites(card.id))
       : dispatch(addFavorites(card));
   };
 
@@ -81,6 +95,13 @@ export const TeacherCard = ({ card }) => {
 
   const lang = languages.join(', ');
 
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, user => {
+      user ? setAuthUser(user) : setAuthUser(null);
+    });
+    return () => listen();
+  }, []);
+
   return (
     <CardContainer>
       <CardSidebar>
@@ -91,7 +112,7 @@ export const TeacherCard = ({ card }) => {
       <CardBody>
         <CardHeader>
           <Superscript>Languages</Superscript>
-          <AligneWrapper>
+          <AlignWrapper>
             <IconBook width={16} height={16}>
               <use xlinkHref={`${SpriteIcons}#icon-book-open`} />
             </IconBook>
@@ -106,7 +127,7 @@ export const TeacherCard = ({ card }) => {
               Price / 1 hour: <GreenMark>{price_per_hour}$</GreenMark>
             </p>
             <BtnHeart onClick={toggleFavorite}>
-              {isFavorite ? (
+              {isFavorite && authUser ? (
                 <svg width={26} height={26} stroke="#F4C550" fill="#F4C550">
                   <use xlinkHref={`${SpriteIcons}#icon-heart`} />
                 </svg>
@@ -116,7 +137,7 @@ export const TeacherCard = ({ card }) => {
                 </svg>
               )}
             </BtnHeart>
-          </AligneWrapper>
+          </AlignWrapper>
         </CardHeader>
 
         <CardMain>
@@ -142,8 +163,10 @@ export const TeacherCard = ({ card }) => {
             <OpenData>
               <BtnReadMore onClick={handleClick}>Read more</BtnReadMore>
               <LevelList>
-                {levels.map((level, idx) => (
-                  <li key={idx}>{level}</li>
+                {levels.map(level => (
+                  <LevelItem key={level} $active={level === filteredLevel}>
+                    {level}
+                  </LevelItem>
                 ))}
               </LevelList>
             </OpenData>
@@ -156,8 +179,10 @@ export const TeacherCard = ({ card }) => {
                 <TeacherReviewer key={idx} item={item} />
               ))}
               <LevelList>
-                {levels.map((level, idx) => (
-                  <li key={idx}>{level}</li>
+                {levels.map(level => (
+                  <LevelItem key={level}>
+                    {level}
+                  </LevelItem>
                 ))}
               </LevelList>
               <BtnLesson onClick={openTeacherModal}>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AuthModal } from 'components/AuthModal/AuthModal';
+import { AuthModal } from 'components/Auth/AuthModal/AuthModal';
 import { Login } from 'components/Auth/Login';
 import { SignUp } from 'components/Auth/SignUp';
 import {

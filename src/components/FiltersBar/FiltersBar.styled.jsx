@@ -1,6 +1,7 @@
 import { theme } from 'components/theme';
 import styled from 'styled-components';
 import arrow from 'images/chevron-down.svg';
+import { Field } from 'formik';
 
 export const StyledLabel = styled.label`
   color: rgb(138, 138, 137);
@@ -12,7 +13,7 @@ export const StyledLabel = styled.label`
   flex-direction: column;
 `;
 
-export const StyledSelect = styled.select`
+export const StyledSelect = styled(Field)`
   margin-block-start: ${theme.spacing(4)};
   margin-inline-end: ${theme.spacing(10)};
   padding: ${theme.spacing(7)} ${theme.spacing(9)};

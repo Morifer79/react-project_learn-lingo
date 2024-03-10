@@ -13,6 +13,7 @@ import {
 import SpriteIcons from '../../images/sprite.svg';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { AuthProvider } from './AuthProvider';
 import toast from 'react-hot-toast';
 
 const registerSchema = Yup.object({
@@ -56,53 +57,56 @@ export const SignUp = ({ onRequestClose }) => {
   };
 
   return (
-    <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={registerSchema}
-      onSubmit={handleSubmit}
-    >
-      <StyledForm>
-        <Title>Registration</Title>
-        <p>
-          Thank you for your interest in our platform! In order to register, we
-          need some information. Please provide us with the following
-          information
-        </p>
+    <>
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={registerSchema}
+        onSubmit={handleSubmit}
+      >
+        <StyledForm>
+          <Title>Registration</Title>
+          <p>
+            Thank you for your interest in our platform! In order to register,
+            we need some information. Please provide us with the following
+            information
+          </p>
 
-        <label aria-label="Name for registration">
-          <StyledInput type="text" name="name" placeholder="Name" />
-          <ErrMsg name="name" component="div" />
-        </label>
+          <label aria-label="Name for registration">
+            <StyledInput type="text" name="name" placeholder="Name" />
+            <ErrMsg name="name" component="div" />
+          </label>
 
-        <label aria-label="Email for registration">
-          <StyledInput type="email" name="email" placeholder="Email" />
-          <ErrMsg name="email" component="div" />
-        </label>
+          <label aria-label="Email for registration">
+            <StyledInput type="email" name="email" placeholder="Email" />
+            <ErrMsg name="email" component="div" />
+          </label>
 
-        <PasswordLabel aria-label="Password for registration">
-          <StyledInput
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            placeholder="Password"
-          />
-          <ErrMsg name="password" component="div" />
-          <EyeBtn onClick={() => handleTogglePassword()} type="button">
-            <svg width="18" height="18">
-              <use
-                xlinkHref={
-                  showPassword
-                    ? `${SpriteIcons}#icon-eye`
-                    : `${SpriteIcons}#icon-eye-off`
-                }
-              />
-            </svg>
-          </EyeBtn>
-        </PasswordLabel>
+          <PasswordLabel aria-label="Password for registration">
+            <StyledInput
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              placeholder="Password"
+            />
+            <ErrMsg name="password" component="div" />
+            <EyeBtn onClick={() => handleTogglePassword()} type="button">
+              <svg width="18" height="18">
+                <use
+                  xlinkHref={
+                    showPassword
+                      ? `${SpriteIcons}#icon-eye`
+                      : `${SpriteIcons}#icon-eye-off`
+                  }
+                />
+              </svg>
+            </EyeBtn>
+          </PasswordLabel>
 
-        <BtnSubmit type="submit">
-          <span>Sign Up</span>
-        </BtnSubmit>
-      </StyledForm>
-    </Formik>
+          <BtnSubmit type="submit">
+            <span>Sign Up</span>
+          </BtnSubmit>
+        </StyledForm>
+      </Formik>
+      <AuthProvider onRequestClose={onRequestClose} />
+    </>
   );
 };
