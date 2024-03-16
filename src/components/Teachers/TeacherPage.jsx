@@ -3,7 +3,7 @@ import { TeachersList } from './TeachersList';
 import { useSelector } from 'react-redux';
 
 import { getFilteredTeachers, selectLoading } from '../../redux/selectors';
-import { BtnLoadMore, BtnWrapper, Wrapper } from './TeacherCard/TeacherCard.styled';
+import { BtnLoadMore, BtnWrapper, InfoText, Wrapper } from './TeacherCard/TeacherCard.styled';
 import { useState } from 'react';
 import { Loader } from 'components/Loader';
 
@@ -23,7 +23,7 @@ export const TeacherPage = () => {
       </Wrapper>
       {isLoading && <Loader />}
       {!isLoading && filteredTeachers.length === 0 && (
-        <p>No teachers found based on the selected filters 😕</p>
+        <InfoText>No teachers found based on the selected filters 😕</InfoText>
       )}
       <TeachersList renderCard={renderCard} />
       {renderCard < filteredTeachers.length && (

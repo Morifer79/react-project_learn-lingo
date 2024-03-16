@@ -2,7 +2,7 @@ import { theme } from 'components/theme';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  margin-block-start: ${theme.spacing(16)};
+  margin-block: ${theme.spacing(8)};
   margin-inline: auto;
   padding: ${theme.spacing(12)};
 
@@ -215,7 +215,7 @@ export const BtnLesson = styled.button`
 `;
 
 export const BtnLoadMore = styled.button`
-  margin-block: ${theme.spacing(32)} ${theme.spacing(48)};
+  margin-block: ${theme.spacing(24)} ${theme.spacing(48)};
   padding: ${theme.spacing(8)} ${theme.spacing(24)};
 
   border-radius: ${theme.radii.xs};
@@ -238,4 +238,10 @@ export const BtnWrapper = styled.div`
 
 export const Wrapper = styled.div`
   padding-inline-start: 122px;
+`;
+
+export const InfoText = styled.div`
+  margin-block-start: 10%;
+  text-align: center;
+  font-size: 40px;
 `;

@@ -45,7 +45,7 @@ export const SignUp = ({ onRequestClose }) => {
         onRequestClose()
       )
       .catch(error =>
-        toast.error(error, {
+        toast.error(`Something went wrong, ${error}`, {
           duration: 5000,
           position: 'top-right',
         })

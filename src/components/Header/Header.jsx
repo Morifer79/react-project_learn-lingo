@@ -9,6 +9,7 @@ import {
   LogoBox,
   NavList,
   Navigation,
+  RegBar,
   StyledLink,
   UserSpan,
 } from './Header.styled';
@@ -52,7 +53,7 @@ export const Header = () => {
         position: 'top-right',
         icon: '✌',
       }))
-      .catch(error => toast.error(error, {
+      .catch(error => toast.error(`Something went wrong! ${error}`, {
         duration: 5000,
         position: 'top-right',
       }));
@@ -96,14 +97,16 @@ export const Header = () => {
               </BtnAuth>
             </>
           ) : (
-            <BtnAuth onClick={openLoginModal}>
-              <svg width={20} height={20}>
-                <use xlinkHref={`${SpriteIcons}#icon-log-in`} />
-              </svg>
-              <span>Log in</span>
-            </BtnAuth>
+            <RegBar>
+              <BtnAuth onClick={openLoginModal}>
+                <svg width={20} height={20}>
+                  <use xlinkHref={`${SpriteIcons}#icon-log-in`} />
+                </svg>
+                <span>Log in</span>
+              </BtnAuth>
+            <BtnReg onClick={openRegisterModal}>Registration</BtnReg>
+            </RegBar>
           )}
-          <BtnReg onClick={openRegisterModal}>Registration</BtnReg>
 
           <AuthModal id='log' isOpen={isLoginModalOpen} onRequestClose={closeLoginModal}>
             <Login onRequestClose={closeLoginModal} />

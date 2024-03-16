@@ -3,15 +3,28 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderBox = styled.header`
-  padding: ${theme.spacing(10)} ${theme.spacing(32)};
-  max-inline-size: 1440px;
+  @media screen and (min-width: 321px) {
+    padding: ${theme.spacing(10)} ${theme.spacing(32)};
+  }
 `;
 
 export const Navigation = styled.nav`
   display: flex;
-  flex-wrap: nowrap;
+  white-space: nowrap;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 320px) {
+    padding: ${theme.spacing(3)};
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: ${theme.spacing(3)};
+    margin-bottom: ${theme.spacing(3)};
+  }
+`;
+
+export const RegBar = styled.div`
+  display: flex;
 `;
 
 export const LogoBox = styled.div`
@@ -21,7 +34,7 @@ export const LogoBox = styled.div`
   gap: ${theme.spacing(6)};
   transition: 1s;
 
-  &:hover{
+  &:hover {
     transform: scale(1.2);
   }
 

@@ -2,14 +2,16 @@ import { TeacherPage } from 'components/Teachers/TeacherPage';
 import { theme } from 'components/theme';
 import styled from 'styled-components';
 
-const TeachersPageWrapper = styled.div`
+export const PageWrapper = styled.div`
   background-color: ${theme.colors.back};
+  padding-block-start: ${theme.spacing(5)};
+  min-height: 100vh;
 `;
 
 export default function TeachersPage() {
   return (
-    <TeachersPageWrapper>
+    <PageWrapper>
       <TeacherPage />
-    </TeachersPageWrapper>
+    </PageWrapper>
   );
 }
