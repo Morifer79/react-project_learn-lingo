@@ -1,4 +1,4 @@
-import{s as e,t as n,N as s,j as i}from"./index-6ae32971.js";const r="/react-project_learn-lingo/assets/home-3b60c394.png",a=e.section`
+import{s as e,t as n,N as s,j as i}from"./index-6a48fa86.js";const r="/react-project_learn-lingo/assets/home-3b60c394.png",a=e.section`
   padding-block-end: ${n.spacing(16)};
 `,o=e.div`
   display: flex;
