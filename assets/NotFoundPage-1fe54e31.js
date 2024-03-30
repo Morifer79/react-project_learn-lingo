@@ -1,4 +1,4 @@
-import{j as o,s as t,t as r,N as s}from"./index-c62496c6.js";const e="/react-project_learn-lingo/assets/error1-783ccb39.png",n="/react-project_learn-lingo/assets/error2-cb5631e7.png",c=t.div`
+import{j as o,s as t,t as r,N as s}from"./index-6ae32971.js";const e="/react-project_learn-lingo/assets/error1-783ccb39.png",n="/react-project_learn-lingo/assets/error2-cb5631e7.png",c=t.div`
   display: flex;
   justify-content: center;
   transform-style: preserve-3d;
