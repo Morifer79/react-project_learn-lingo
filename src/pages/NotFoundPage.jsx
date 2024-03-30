@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import fourty from 'images/error1.png';
-import four from 'images/error2.png';
+import fourty from '../images/error1.png';
+import four from '../images/error2.png';
 import { NavLink } from 'react-router-dom';
 import { theme } from 'components/theme';
 
