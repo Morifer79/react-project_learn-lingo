@@ -6,6 +6,7 @@ export const PageWrapper = styled.div`
   background-color: ${theme.colors.back};
   padding-block-start: ${theme.spacing(5)};
   min-height: 100vh;
+  min-inline-size: 100%;
 `;
 
 export default function TeachersPage() {

@@ -8,9 +8,6 @@ import {
   GreenDot,
   CardHeader,
   CardMain,
-  HiddenData,
-  OpenData,
-  CardBody,
   BtnHeart,
   GreenMark,
   IconStar,
@@ -43,7 +40,7 @@ export const TeacherCard = ({ card }) => {
   const [authUser, setAuthUser] = useState(null);
   const favorites = useSelector(selectFavorites);
   const isFavorite = favorites?.some(
-    favorite => favorite.lessons_done === card.lessons_done
+    (favorite) => favorite.lessons_done === card.lessons_done
   );
   const filteredLevel = useSelector(selectFilter).level;
 
@@ -96,7 +93,7 @@ export const TeacherCard = ({ card }) => {
   const lang = languages.join(', ');
 
   useEffect(() => {
-    const listen = onAuthStateChanged(auth, user => {
+    const listen = onAuthStateChanged(auth, (user) => {
       user ? setAuthUser(user) : setAuthUser(null);
     });
     return () => listen();
@@ -109,7 +106,7 @@ export const TeacherCard = ({ card }) => {
         <Avatar src={avatar_url} alt="avatar" />
       </CardSidebar>
 
-      <CardBody>
+      <div>
         <CardHeader>
           <Superscript>Languages</Superscript>
           <AlignWrapper>
@@ -160,29 +157,27 @@ export const TeacherCard = ({ card }) => {
           </MainList>
 
           {!isHidden && (
-            <OpenData>
+            <div>
               <BtnReadMore onClick={handleClick}>Read more</BtnReadMore>
               <LevelList>
-                {levels.map(level => (
+                {levels.map((level) => (
                   <LevelItem key={level} $active={level === filteredLevel}>
                     {level}
                   </LevelItem>
                 ))}
               </LevelList>
-            </OpenData>
+            </div>
           )}
 
           {isClicked && (
-            <HiddenData>
+            <div>
               <p>{experience}</p>
               {reviews.map((item, idx) => (
                 <TeacherReviewer key={idx} item={item} />
               ))}
               <LevelList>
-                {levels.map(level => (
-                  <LevelItem key={level}>
-                    {level}
-                  </LevelItem>
+                {levels.map((level) => (
+                  <LevelItem key={level}>{level}</LevelItem>
                 ))}
               </LevelList>
               <BtnLesson onClick={openTeacherModal}>
@@ -194,10 +189,10 @@ export const TeacherCard = ({ card }) => {
               >
                 <TeacherModal card={card} onRequestClose={closeTeacherModal} />
               </AuthModal>
-            </HiddenData>
+            </div>
           )}
         </CardMain>
-      </CardBody>
+      </div>
     </CardContainer>
   );
 };

@@ -1,8 +1,13 @@
-import { BtnRst, StyledLabel, StyledSelect } from './FiltersBar.styled';
+import {
+  BtnRst,
+  StyledForm,
+  StyledLabel,
+  StyledSelect,
+} from './FiltersBar.styled';
 import { useEffect, useState } from 'react';
 import { setFilter } from '../../redux/filtersSlice';
 import { useDispatch } from 'react-redux';
-import { Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import optionsData from './optionsData.json';
 
 export const FiltersBar = () => {
@@ -21,22 +26,22 @@ export const FiltersBar = () => {
   }, [filterValues, dispatch]);
 
   const inputChange = (propertyName, e) => {
-    setFilterValues(prevValues => ({
+    setFilterValues((prevValues) => ({
       ...prevValues,
       [propertyName]: e.target.value,
     }));
   };
 
-  const handleLanguageChange = e => inputChange('language', e);
-  const handleLevelChange = e => inputChange('level', e);
-  const handlePriceChange = e => inputChange('price', e);
+  const handleLanguageChange = (e) => inputChange('language', e);
+  const handleLevelChange = (e) => inputChange('level', e);
+  const handlePriceChange = (e) => inputChange('price', e);
 
   const handleReset = () => setFilterValues(initialValues);
 
   return (
     <Formik initialValues={filterValues}>
       {() => (
-        <Form>
+        <StyledForm>
           <StyledLabel>
             Languages
             <StyledSelect
@@ -48,7 +53,7 @@ export const FiltersBar = () => {
               onChange={handleLanguageChange}
             >
               <option value="all">All</option>
-              {optionsData.languages.map(language => (
+              {optionsData.languages.map((language) => (
                 <option key={language} value={language}>
                   {language}
                 </option>
@@ -67,7 +72,7 @@ export const FiltersBar = () => {
               onChange={handleLevelChange}
             >
               <option value="all">All</option>
-              {optionsData.levels.map(level => (
+              {optionsData.levels.map((level) => (
                 <option key={level} value={level}>
                   {level}
                 </option>
@@ -86,7 +91,7 @@ export const FiltersBar = () => {
               onChange={handlePriceChange}
             >
               <option value="all">All</option>
-              {optionsData.prices.map(price => (
+              {optionsData.prices.map((price) => (
                 <option key={price} value={price}>
                   {price} $
                 </option>
@@ -97,7 +102,7 @@ export const FiltersBar = () => {
           <BtnRst type="button" onClick={handleReset}>
             Reset
           </BtnRst>
-        </Form>
+        </StyledForm>
       )}
     </Formik>
   );

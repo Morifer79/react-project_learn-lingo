@@ -13,33 +13,66 @@ const Thumb = styled.div`
 
 const Four = styled.img`
   position: absolute;
-  top: 14%;
-  right: 36%;
-  inline-size: 180px;
-  block-size: 180px;
+  inline-size: 80px;
+  block-size: 80px;
+  top: 20px;
+  right: 56px;
+
+  @media screen and (min-width: 768px) {
+    inline-size: 180px;
+    block-size: 180px;
+    top: 70px;
+    right: 160px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 68px;
+    right: 465px;
+  }
 `;
 
 const Msg = styled.h1`
-  font-size: 75px;
+  font-size: 30px;
   position: absolute;
-  top: 65%;
-  right: 30%;
+  top: 140px;
   transform: rotateY(37deg);
+
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+    top: 330px;
+    right: 60px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 360px;
+    right: 390px;
+  }
 `;
 
 const BtnBack = styled(NavLink)`
   background-color: ${theme.colors.cherry};
   color: ${theme.colors.light};
-  font-size: 65px;
+  font-size: 30px;
   position: absolute;
-  top: 65%;
-  right: 26%;
-  transform: rotateY(-88deg);
+  top: 180px;
+  right: 35px;
+  transform: rotateY(-58deg);
   transition: color ${theme.transition} background-color ${theme.transition};
 
   &:hover {
     background-color: transparent;
     color: ${theme.colors.cherry};
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+    transform: rotateY(-88deg);
+    top: 325px;
+    right: -18px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 350px;
+    right: 310px;
   }
 `;
 

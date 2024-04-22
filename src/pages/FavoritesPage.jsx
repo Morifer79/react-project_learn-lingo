@@ -2,6 +2,7 @@ import fav from '../images/favorite.png';
 import { selectFavorites } from '../redux/selectors';
 import { Favorite } from 'components/Favorite';
 import { useSelector } from 'react-redux';
+import { PageWrapper } from './TeachersPage';
 
 export default function FavoritesPage() {
 
@@ -10,7 +11,9 @@ export default function FavoritesPage() {
   return (
     <>
       {favorites.length > 0 ? (
-        <Favorite />
+        <PageWrapper>
+          <Favorite />
+        </PageWrapper>
       ) : (
         <img src={fav} alt="no favorites" />
       )}

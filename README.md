@@ -54,9 +54,12 @@ To get started with this project, follow the installation instructions below.
    npm start
    ```
 4. Open to view it in the browser:  
-<a href="https://morifer79.github.io/react-project_learn-lingo/"><img src="https://badgen.net/badge/🌎 www:/Learn Lingo/yellow?icon=browser" alt="Badge"/></a>
+<a href="https://morifer79.github.io/react-project_learn-lingo/"><img src="https://badgen.net/badge/🌎 www:/Learn Lingo/yellow?icon=browser" alt="Badge"/></a>  
+
+5. Open to view file Layout:  
+<a href="https://www.figma.com/file/dewf5jVviSTuWMMyU3d8Mc/%D0%9F%D0%B5%D1%82-%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82-%D0%B4%D0%BB%D1%8F-%D0%9A%D0%A6?type=design&node-id=0-1&mode=design&t=jCmjSs9PeOjObYSc-0"><img src="https://badgen.net/badge/🎴 layout:/Learn Lingo/yellow?icon=browser" alt="Badge"/></a>  
 
 ## 𝔼𝕞𝕒𝕚𝕝 𝕞𝕖 ᎓
 Questions, suggestions, help:  
-<a href="mailto:cyber-morifer@proton.me"><img src="https://badgen.net/badge/📧 email:/cyber-morifer@proton.me/yellow?icon=email" alt="Mail Badge"/></a>
+<a href="mailto:cyber-morifer@proton.me"><img src="https://badgen.net/badge/📧 email:/cyber-morifer@proton.me/orange?icon=email" alt="Mail Badge"/></a>
    

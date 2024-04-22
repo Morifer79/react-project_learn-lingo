@@ -1,10 +1,21 @@
 import { theme } from 'components/theme';
 import styled from 'styled-components';
 import arrow from '../../images/chevron-down.svg';
-import { Field } from 'formik';
+import { Field, Form } from 'formik';
+
+export const StyledForm = styled(Form)`
+  @media screen and (max-width: 1439px) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  @media screen and (min-width: 1440px) {
+    white-space: nowrap;
+  }
+`;
 
 export const StyledLabel = styled.label`
-  color: rgb(138, 138, 137);
+  color: ${theme.colors.accent};
   font-size: 14px;
   font-weight: 500;
   line-height: 1.285;
@@ -27,7 +38,9 @@ export const StyledSelect = styled(Field)`
   border-radius: ${theme.radii.s};
   appearance: none;
   overflow: hidden;
-  background: right 14px center no-repeat url(${arrow}), ${theme.colors.light};
+  background:
+    right 14px center no-repeat url(${arrow}),
+    ${theme.colors.light};
 
   &#language {
     inline-size: 220px;

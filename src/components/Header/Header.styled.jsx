@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderBox = styled.header`
-  @media screen and (min-width: 321px) {
+  padding: ${theme.spacing(5)} ${theme.spacing(16)};
+  @media screen and (min-width: 768px) {
     padding: ${theme.spacing(10)} ${theme.spacing(32)};
   }
 `;
@@ -12,14 +13,19 @@ export const Navigation = styled.nav`
   display: flex;
   white-space: nowrap;
   align-items: center;
-  justify-content: space-between;
-  @media screen and (max-width: 320px) {
+  justify-content: center;
+  flex-direction: column;
+
+  @media screen and (max-width: 1439px) {
     padding: ${theme.spacing(3)};
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
+
     gap: ${theme.spacing(3)};
     margin-bottom: ${theme.spacing(3)};
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
@@ -99,14 +105,17 @@ export const BtnReg = styled.button`
   border-radius: ${theme.radii.xs};
   color: ${theme.colors.light};
   background-color: ${theme.colors.main};
-  transition: color ${theme.transition}, background-color ${theme.transition},
+  transition:
+    color ${theme.transition},
+    background-color ${theme.transition},
     box-shadow ${theme.transition};
 
   &:hover {
     color: ${theme.colors.main};
     background-color: transparent;
     outline: 0;
-    box-shadow: 0 0 10px 0 ${theme.colors.main} inset,
+    box-shadow:
+      0 0 10px 0 ${theme.colors.main} inset,
       0 0 10px 4px ${theme.colors.main};
   }
 `;

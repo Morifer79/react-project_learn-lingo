@@ -11,6 +11,10 @@ export const CardContainer = styled.div`
   gap: ${theme.spacing(24)};
   background-color: ${theme.colors.light};
   border-radius: ${theme.radii.l};
+
+  @media screen and (max-width: 1439px) {
+    flex-direction: column;
+  }
 `;
 
 export const CardSidebar = styled.div`
@@ -19,6 +23,10 @@ export const CardSidebar = styled.div`
 
 export const AlignWrapper = styled.div`
   display: flex;
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -34,13 +42,14 @@ export const GreenDot = styled.img`
   border-radius: ${theme.radii.xxl};
 `;
 
-export const CardBody = styled.div`
-  max-inline-size: 968px;
-`;
-
 export const CardHeader = styled.div`
-  display: flex;
-  gap: 160px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: ${theme.spacing(5)};
+  }
+  @media screen and (min-width: 1440px) {
+    gap: ${theme.spacing(80)};
+  }
 
   p {
     display: inline-flex;
@@ -139,6 +148,9 @@ export const BtnReadMore = styled.button`
 export const LevelList = styled.ul`
   display: flex;
   gap: ${theme.spacing(4)};
+  @media screen and (max-width: 767px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const LevelItem = styled.li`
@@ -154,10 +166,6 @@ export const LevelItem = styled.li`
   font-weight: 500;
   line-height: 1.142;
 `;
-
-export const OpenData = styled.div``;
-
-export const HiddenData = styled.div``;
 
 export const FlexContainer = styled.div`
   margin-block: ${theme.spacing(17.5)} ${theme.spacing(8)};
@@ -237,7 +245,10 @@ export const BtnWrapper = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding-inline-start: 122px;
+  padding-inline-start: ${theme.spacing(12)};
+  @media screen and (min-width: 1440px) {
+    padding-inline-start: ${theme.spacing(61)};
+  }
 `;
 
 export const InfoText = styled.div`

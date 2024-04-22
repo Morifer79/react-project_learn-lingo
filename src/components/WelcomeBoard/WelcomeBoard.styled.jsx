@@ -8,28 +8,39 @@ export const Section = styled.section`
 
 export const HomeFlexBox = styled.div`
   display: flex;
-  flex-wrap: wrap;
+
+  @media screen and (max-width: 1439px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media screen and (min-width: 1440px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const BoardContainer = styled.div`
   margin-block-end: ${theme.spacing(12)};
 
-  @media screen and (min-width: 321px) {
-    display: flex;
-    gap: ${theme.spacing(12)};
+  display: flex;
+  gap: ${theme.spacing(12)};
+  @media screen and (max-width: 1439px) {
+    flex-direction: column;
   }
 `;
 
 export const SideBoard = styled.div`
-  padding: ${theme.spacing(3)};
+  padding: ${theme.spacing(12)} ${theme.spacing(8)};
   margin-block-end: ${theme.spacing(3)};
-  max-inline-size: 720px;
-  min-inline-size: 320px;
   background-color: ${theme.colors.back};
   border-radius: ${theme.radii.l};
 
-  @media screen and (min-width: 720px) {
-    padding: 98px 64px;
+  @media screen and (min-width: 768px) {
+    padding: ${theme.spacing(24.5)} ${theme.spacing(16)};
+    margin-block-end: 0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: ${theme.spacing(49)} ${theme.spacing(32)};
     margin-block-end: 0;
   }
 
@@ -46,9 +57,13 @@ export const HeroImg = styled.img`
 export const BoardTitle = styled.h1`
   display: block;
   margin-block-end: ${theme.spacing(16)};
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 500;
   line-height: 1.166;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 48px;
+  }
 
   i {
     font-weight: 400;
@@ -74,10 +89,21 @@ export const BtnTeachers = styled(NavLink)`
 
 export const BoardList = styled.ul`
   padding: ${theme.spacing(3)} ${theme.spacing(10)};
-  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  gap: ${theme.spacing(10)};
 
   border: 1.5px dashed ${theme.colors.primary};
   border-radius: ${theme.radii.l};
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: ${theme.spacing(20)} ${theme.spacing(61.5)};
+    gap: ${theme.spacing(50)};
+  }
 
   h2 {
     white-space: nowrap;
@@ -87,6 +113,9 @@ export const BoardList = styled.ul`
     display: flex;
     align-items: center;
     gap: ${theme.spacing(8)};
+    @media screen and (max-width: 1439px) {
+      justify-content: space-between;
+    }
   }
 
   p {
@@ -94,12 +123,5 @@ export const BoardList = styled.ul`
     font-size: 14px;
     line-height: 1.285;
     color: rgba(18, 20, 23, 0.7);
-  }
-
-  @media screen and (min-width: 321px) {
-    padding: ${theme.spacing(20)} ${theme.spacing(61.5)};
-    display: flex;
-    justify-content: center;
-    gap: ${theme.spacing(50)};
   }
 `;
